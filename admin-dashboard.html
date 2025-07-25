@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Portal – Creative Coding Campus</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f9fb;
+      margin: 0;
+      padding: 0;
+      color: #333;
+}
+
+.container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.05);
+}
+
+    h1 {
+      text-align: center;
+      color: #1976d2;
+      margin-bottom: 30px;
+}
+
+.student-table {
+      width: 100%;
+      border-collapse: collapse;
+}
+
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #ccc;
+      text-align: left;
+}
+
+    th {
+      background: #e3f2fd;
+      color: #1976d2;
+}
+
+.progress {
+      background: #bbdefb;
+      border-radius: 20px;
+      position: relative;
+      height: 20px;
+}
+
+.bar {
+      height: 100%;
+      background: #1976d2;
+      border-radius: 20px;
+}
+
+.btn {
+      background: #1976d2;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.9em;
+      margin-right: 6px;
+}
+
+.btn:hover {
+      background: #115293;
+}
+
+.controls {
+      margin-top: 20px;
+      text-align: right;
+}
+
+.badge {
+      background: #1976d2;
+      color: white;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.8em;
+}
+
+    @media screen and (max-width: 600px) {
+.student-table, th, td {
+        font-size: 0.9em;
+}
+}
+.container1 {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+}
+
+  h1 {
+    text-align: center;
+    color: #1976d2;
+}
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+}
+
+  th, td {
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+  th {
+    background: #e3f2fd;
+    color: #1976d2;
+}
+
+.btn {
+      background: #1976d2;
+      color: white;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.9em;
+}
+
+.btn:hover {
+      background-color: #0f4da2;
+}
+
+.input-row {
+      margin: 20px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+}
+
+.input-row input {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      width: 100%;
+      max-width: 200px;
+}
+
+    canvas {
+      margin-top: 40px;
+      max-width: 100%;
+}
+
+.badge {
+      background: #1976d2;
+      color: white;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.8em;
+}
+
+    @media screen and (max-width: 600px) {
+      th, td {
+        font-size: 0.85em;
+}
+}
+
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎓 Admin Portal</h1>
+
+    <div class="controls">
+      <button class="btn" onclick="exportCSV()">📤 Export CSV</button>
+      <button class="btn" onclick="alert('Feature coming soon!')">➕ Add Student</button>
+    </div>
+
+    <table class="student-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Level</th>
+          <th>Progress</th>
+          <th>Badges</th>
+          <th>Certificate</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="studentList">
+        <tr>
+          <td>Ada Bright</td>
+          <td>4</td>
+          <td><div class="progress"><div class="bar" style="width: 85%"></div></div></td>
+          <td><span class="badge">Hero</span> <span class="badge">Story</span></td>
+          <td>✅</td>
+          <td>
+            <button class="btn">Reset PW</button>
+            <button class="btn">🛑</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Leo Sparks</td>
+          <td>2</td>
+          <td><div class="progress"><div class="bar" style="width: 45%"></div></div></td>
+          <td><span class="badge">Explorer</span></td>
+          <td>—</td>
+          <td>
+            <button class="btn">Reset PW</button>
+            <button class="btn">🛑</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="container1">
+    <h1>🎓 Admin Portal Dashboard</h1>
+
+    <!-- Access Guard -->
+    <script>
+      const adminAuth = localStorage.getItem("adminLoggedIn");
+      if (adminAuth!== "true") {
+        alert("Access denied. Please log in as an admin.");
+        window.location.href = "admin-login.html";
+}
+    </script>
+
+    <!-- Add Student -->
+    <div class="input-row">
+      <input type="text" id="newName" placeholder="Full Name" />
+      <input type="number" id="newLevel" placeholder="Level Completed (1–5)" />
+      <input type="text" id="newBadges" placeholder="Badges (comma-separated)" />
+      <button class="btn" onclick="addStudent()">➕ Add Student</button>
+    </div>
+   
+      <!-- Student Table -->
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Level</th>
+            <th>Badges</th>
+            <th>Certificate</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="studentTableBody"></tbody>
+      </table>
+  
+      <!-- Chart -->
+      <canvas id="progressChart"></canvas>
+    </div>
+  
+    <script>
+      let students = [
+        { name: "Ada Bright", level: 4, badges: ["Hero", "Story"], cert: true},
+        { name: "Leo Sparks", level: 2, badges: ["Explorer"], cert: false},
+      ];
+  
+      const table = document.getElementById("studentTableBody");
+  
+      function renderTable() {
+        table.innerHTML = "";
+        students.forEach((s, i) => {
+          let row = `
+            <tr>
+          <td>${s.name}</td>
+            <td>${s.level}</td>
+            <td>${s.badges.map(b => <span class="badge">${b}</span>).join(" ")}</td>
+            <td>${s.cert? "✅": "—"}</td>
+            <td>
+              <button class="btn" onclick="resetPassword(${i})">Reset PW</button>
+              <button class="btn" onclick="removeStudent(${i})">🗑</button>
+            </td>
+          </tr>`;
+        table.insertAdjacentHTML("beforeend", row);
+});
+      updateChart();
+}
+
+    function addStudent() {
+      const name = document.getElementById("newName").value;
+      const level = parseInt(document.getElementById("newLevel").value);
+      const badges = document.getElementById("newBadges").value.split(",").map(b => b.trim());
+      if (!name || isNaN(level)) return alert("Fill in name and level.");
+
+      students.push({ name, level, badges, cert: level>= 4});
+      renderTable();
+      document.getElementById("newName").value = "";
+      document.getElementById("newLevel").value = "";
+      document.getElementById("newBadges").value = "";
+}
+
+    function removeStudent(index) {
+      if (confirm("Remove this student?")) {
+        students.splice(index, 1);
+        renderTable();
+}
+}
+
+    function resetPassword(index) {
+      alert(🔐 Password reset link sent to ${students[index].name});
+}
+
+    // Chart.js
+    let chart;
+    function updateChart() {
+      const ctx = document.getElementById("progressChart").getContext("2d");
+      const labels = students.map(s => s.name);
+      const data = students.map(s => s.level);
+
+      if (chart) chart.destroy();
+
+      chart = new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels,
+          datasets: [{
+            label: "Levels Completed",
+            data,
+            backgroundColor: "#1976d2"
+}]
+},
+        options: {
+          scales: {
+            y: { beginAtZero: true, max: 5}
+}
+}
+});
+}
+
+    // Initial load
+    renderTable();
+  </script>
+
+  <script>
+    function exportCSV() {
+      alert("📤 Student data exported (simulated)");
+      // CSV logic can be implemented using Blob or SheetJS later
+}
+window.onload = function () {
+    const isAdmin = localStorage.getItem("adminLoggedIn");
+    if (isAdmin!== "true") {
+      alert("Access denied. Please login as an admin.");
+      window.location.href = "admin-login.html";
+}
+};
+
+  </script>
+  <input type="text" id="newVideoLink" placeholder="Paste YouTube embed link" />
+<button onclick="addTutorial()">➕ Add Tutorial</button>
+
+<h2 style="margin-top: 50px; color: #1976d2;">📺 Admin Help Center</h2>
+<p>Need guidance using the portal? Watch this walkthrough:</p>
+<script>
+    function addTutorial() {
+        const link = document.getElementById("newVideoLink").value;
+        const container = document.querySelector(".tutorial-container");
+        const frame = document.createElement("iframe");
+        frame.src = link;
+        frame.width = "100%";
+        frame.height = "250";
+        frame.allowFullscreen = true;
+        container.appendChild(frame);
+      }
+      
+</script>
+<div style="margin-top: 20px;">
+  <iframe width="100%" height="315"
+    src="https://www.youtube.com/embed/YOUR_ADMIN_TUTORIAL_LINK"
+    title="Admin Portal Walkthrough"
+    frameborder="0"
+    allowfullscreen
+    style="border-radius: 12px;"></iframe>
+</div>
+<a href="campus-tutorials.html" style="color: white;border:groove red 2px; background-color:red;">Tutorials</a>
+
+</body>
+</html>
+

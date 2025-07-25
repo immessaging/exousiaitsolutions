@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Student Registration – Creative Coding Campus</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #e3f2fd, #fce4ec);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+}
+
+.register-box {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 18px rgba(0,0,0,0.08);
+      width: 95%;
+      max-width: 450px;
+}
+
+    h2 {
+      color: #1976d2;
+      text-align: center;
+      margin-bottom: 25px;
+}
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+}
+
+.btn {
+      background: #1976d2;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      font-size: 1em;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 10px;
+}
+
+.btn:hover {
+      background: #115293;
+}
+
+.error {
+      color: crimson;
+      font-size: 0.9em;
+      margin-top: 10px;
+      text-align: center;
+}
+
+.success {
+      color: green;
+      font-size: 0.9em;
+      margin-top: 10px;
+      text-align: center;
+}
+  </style>
+</head>
+<body>
+  <div class="register-box">
+    <h2>🧑‍🎓 Student Registration</h2>
+    <input type="text" id="username" placeholder="Choose a Username" />
+    <input type="text" id="fullName" placeholder="Full Name" />
+    <input type="email" id="email" placeholder="Email Address" />
+    <input type="password" id="password" placeholder="Create Password" />
+    <input type="password" id="confirmPassword" placeholder="Confirm Password" />
+    <button class="btn" onclick="registerStudent()">Create Account</button>
+    <div class="error" id="errorBox"></div>
+    <div class="success" id="successBox"></div>
+  </div>
+
+  <script>
+    function registerStudent() {
+      const username = document.getElementById("username").value;
+      const fullName = document.getElementById("fullName").value;
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const confirm = document.getElementById("confirmPassword").value;
+
+      const errorBox = document.getElementById("errorBox");
+      const successBox = document.getElementById("successBox");
+
+      if (!username ||!fullName ||!email ||!password ||!confirm) {
+        errorBox.textContent = "All fields are required.";
+        successBox.textContent = "";
+        return;
+}
+
+      if (password.length < 6) {
+        errorBox.textContent = "Password must be at least 6 characters.";
+        successBox.textContent = "";
+        return;
+}
+
+      if (password!== confirm) {
+        errorBox.textContent = "Passwords do not match.";
+        successBox.textContent = "";
+        return;
+}
+
+      // Simulate localStorage account creation
+      localStorage.setItem("coderName", fullName);
+      localStorage.setItem("coderUsername", username);
+      localStorage.setItem("coderEmail", email);
+      localStorage.setItem("coderBadges", "Explorer");
+
+      errorBox.textContent = "";
+      successBox.textContent = "🎉 Account created successfully! Redirecting…";
+      setTimeout(() => {
+        window.location.href = "student-dashboard.html";
+}, 1500);
+}
+  </script>
+</body>
+</html>
+
+

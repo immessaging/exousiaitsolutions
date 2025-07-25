@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creative Coding Adventure</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fff4f8;
+      color: #333;
+}
+
+.container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 30px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.08);
+}
+
+    h1 {
+      text-align: center;
+      color: #b93178;
+}
+
+    h2 {
+      margin-top: 35px;
+      color: #8c265b;
+}
+
+    p {
+      font-size: 1.1em;
+      line-height: 1.7;
+      margin-bottom: 16px;
+}
+
+.section {
+      background-color: #fbe1ef;
+      padding: 20px;
+      margin-top: 30px;
+      border-left: 6px solid #b93178;
+      border-radius: 8px;
+}
+
+    ul {
+      margin-top: 10px;
+      padding-left: 20px;
+}
+
+    button {
+      padding: 10px;
+      font-size: 1em;
+      background-color: #b93178;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+      width: 100%;
+      border-radius: 4px;
+}
+
+    button:hover {
+      background-color: #8c265b;
+}
+
+    #output {
+      margin-top: 20px;
+      font-style: italic;
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎨 Creative Coding Adventure</h1>
+    <p>
+      Welcome to a joyful launchpad for young creators! This course introduces students to visual coding using
+      <strong>Scratch</strong>, <strong>MIT App Inventor</strong>, and other playful programming platforms. With drag-and-drop blocks and animated logic, kids build games, stories, and apps that reflect their imaginations.
+    </p>
+
+    <p>
+      Every module is packed with discovery, creativity, and confidence-building tasks. Whether animating their favorite pet, designing quiz apps for family, or building mini games that respond to clicks, this experience turns code into a canvas!
+    </p>
+
+    <div class="section">
+      <h2>🧭 Learning Quest</h2>
+      <p>Each student follows their own hero journey in coding:</p>
+      <ul>
+        <li><strong>Stage 1: Explore —</strong> Meet characters, environments, and buttons!</li>
+        <li><strong>Stage 2: Build —</strong> Make things move, respond, and win points.</li>
+        <li><strong>Stage 3: Customize —</strong> Add sound, themes, and personal art.</li>
+        <li><strong>Stage 4: Share —</strong> Publish or present to friends and family!</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>🎮 Themed Project Kits</h2>
+      <p>Students select their favorite kits to kickstart learning:</p>
+      <ul>
+        <li>🦸 <strong>Superhero Game:</strong> Jump, dodge, save the day!</li>
+        <li>🐱 <strong>Pet Story Creator:</strong> Animate a cat's daily routine.</li>
+        <li>💡 <strong>Invention Simulator:</strong> Use App Inventor to build an idea tester!</li>
+        <li>🎤 <strong>Music Mixer:</strong> Trigger notes and dance moves with Scratch.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>🧪 Surprise Challenge Spinner</h2>
+      <p>Feeling brave? Hit the button to reveal your next coding mission!</p>
+      <button onclick="showChallenge()">Reveal Challenge</button>
+      <div id="output"></div>
+    </div>
+
+    <div class="section">
+      <h2>📝 Personalized Story Task</h2>
+      <p>Choose a favorite character (animal, hero, object), invent a quest, then animate it in Scratch:</p>
+      <ul>
+        <li>Create 3 scenes with movement and sound.</li>
+        <li>Use events like <code>when clicked</code> or <code>when space key pressed</code>.</li>
+        <li>End with a custom message for viewers!</li>
+      </ul>
+    </div>
+
+    <p>
+      Kids won’t just learn—they’ll laugh, imagine, problem-solve, and grow. Parents, brace yourselves: your children might soon be teaching <em>you</em> how to code! 😄
+    </p>
+  </div>
+
+  <script>
+    const challenges = [
+      "🎮 Make a mini race game with score, speed, and sound effects.",
+      "🕵 Create a guessing game where the player chooses between 3 options.",
+      "🧙 Build a magic spell simulator with animated sparkles and outcomes.",
+      "📱 Design an App Inventor calculator that changes colors based on input.",
+      "🐠 Animate an underwater scene with swimming fish and bubbles."
+    ];
+
+    function showChallenge() {
+      const output = document.getElementById("output");
+      const random = challenges[Math.floor(Math.random() * challenges.length)];
+      output.textContent = random;
+}
+  </script>
+</body>
+</html>

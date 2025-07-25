@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exousia IT Solutions - Enginneering & Training Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" href="images/eit_logo.png">
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-color: #110546;
+            --secondary-color: #c50f0f;
+            --accent-color: #c2185b;
+            --text-color: #333;
+            --light-text: #fff;
+            --bg-color: #fadbdb;
+            --card-bg: #fff;
+            --footer-bg: #222;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            position: relative;
+            padding-top: 100px;
+        }
+        
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 99;
+            background-color: var(--secondary-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            font-size: 2em;
+            color: var(--primary-color);
+            user-select: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .search-bar {
+            display: flex;
+            align-items: center;
+            flex-grow: 1;
+            max-width: 500px;
+            margin: 0 20px;
+        }
+        
+        .search-bar input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 25px 0 0 25px;
+            outline: none;
+            font-size: 1em;
+        }
+        
+        #search-submit {
+            background: var(--primary-color);
+            color: var(--light-text);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 0 25px 25px 0;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        #search-submit:hover {
+            background: #c9112e;
+        }
+        
+        .nav-list {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-list li {
+            margin-left: 20px;
+        }
+        
+        .nav-list a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        .nav-list a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary-color);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s;
+        }
+        
+        .nav-list a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        
+        .btnLogin-popup {
+            background: var(--primary-color);
+            color: var(--light-text);
+            border: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-left: 20px;
+        }
+        
+        .btnLogin-popup:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(234, 21, 56, 0.4);
+        }
+        
+        /* Main Content Styles */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, var(--secondary-color), #1a365d);
+            color: var(--light-text);
+            border-radius: 10px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero h1 {
+            font-size: 2.8em;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero p {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/pattern.png') repeat;
+            opacity: 0.1;
+        }
+        
+        /* Content Display System */
+        .content-display-area {
+            background: var(--card-bg);
+            padding: 30px;
+            margin: 40px auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .content-section {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .content-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .content-section h2 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        
+        #nav-links-container, #index-content-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .nav-link-display, .content-item {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        
+        .nav-link-display {
+            display: block;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .nav-link-display:hover {
+            background: #e0e0e0;
+            transform: translateY(-3px);
+        }
+        
+        .content-item {
+            background: #f9f9f9;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .improve-btn {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .improve-btn:hover {
+            background: #9e1450;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(194, 24, 91, 0.2);
+        }
+        
+        /* Creative Coding Campus Section */
+        .creative-coding {
+            margin: 60px 0;
+        }
+        
+        .creative-coding h1 {
+            text-align: center;
+            color: var(--accent-color);
+            margin-bottom: 40px;
+            font-size: 2.5em;
+        }
+        
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            text-align: center;
+            border-top: 5px solid var(--primary-color);
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .card strong {
+            display: block;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+        
+        .card a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+            display: inline-block;
+            padding: 8px 20px;
+            border: 2px solid var(--primary-color);
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+        
+        .card a:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .language-toggle {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .language-toggle .btn {
+            background: var(--secondary-color);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .language-toggle .btn:hover {
+            background: #1a365d;
+            transform: scale(1.05);
+        }
+        
+        /* Login/Register Modal */
+        .wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s;
+        }
+        
+        .wrapper.active-popup {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        .wrapper .form-box {
+            background: white;
+            width: 400px;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+            position: relative;
+        }
+        
+        .icon-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 35px;
+            height: 35px;
+            background: var(--primary-color);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2em;
+        }
+        
+        .form-box h2 {
+            color: var(--secondary-color);
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.8em;
+        }
+        
+        .input-box {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        
+        .input-box input {
+            width: 100%;
+            padding: 10px 0;
+            border: none;
+            border-bottom: 2px solid #ddd;
+            outline: none;
+            font-size: 1em;
+            transition: all 0.3s;
+        }
+        
+        .input-box input:focus {
+            border-bottom-color: var(--primary-color);
+        }
+        
+        .input-box label {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            color: #777;
+            pointer-events: none;
+            transition: all 0.3s;
+        }
+        
+        .input-box input:focus ~ label,
+        .input-box input:valid ~ label {
+            top: -15px;
+            font-size: 0.8em;
+            color: var(--primary-color);
+        }
+        
+        .remember-forgot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 0.9em;
+        }
+        
+        .remember-forgot a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .remember-forgot a:hover {
+            text-decoration: underline;
+        }
+        
+        .btn-form {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1em;
+            transition: all 0.3s;
+        }
+        
+        .btn-form:hover {
+            background: #c9112e;
+        }
+        
+        .login-register {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+        
+        .login-register a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .login-register a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Welcome Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 101;
+        }
+        
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 500px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .modal-content h2 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+        
+        .modal-content p {
+            margin-bottom: 25px;
+        }
+        
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5em;
+            cursor: pointer;
+            color: #777;
+        }
+        
+        .close:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Footer Styles */
+        .footer {
+            background: var(--footer-bg);
+            color: #ddd;
+            padding: 50px 0 20px;
+            margin-top: 60px;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .footer-section h3, .footer-section h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+        }
+        
+        .footer-section p {
+            margin-bottom: 15px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section a {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid #444;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            header {
+                flex-direction: column;
+                padding: 15px;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            .search-bar {
+                width: 100%;
+                margin: 15px 0;
+            }
+            
+            .nav-list {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            .nav-list li {
+                margin: 5px 10px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2em;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding: 40px 15px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8em;
+            }
+            
+            .content-display-area {
+                padding: 20px;
+            }
+            
+            .wrapper .form-box {
+                width: 90%;
+                padding: 30px 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .nav-list {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-list li {
+                margin: 5px 0;
+            }
+            
+            .btnLogin-popup {
+                margin: 10px 0 0;
+            }
+            
+            #nav-links-container, #index-content-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        .btnLogin-popup{
+            border: inset green 2px;
+            border-radius: 17px;
+            background-color:red;
+            text-decoration: none;
+            cursor: pointer;
+            
+        }
+    </style>
+</head>
+<body>
+    <header class="header-container">
+        <div class="logo">
+            <img src="images/eit_logo.png" alt="AI-Roboclub Logo">
+            Exousia IT Solutions
+        </div>
+        
+        <form action="#" class="search-bar">
+            <input type="text" placeholder="Search courses, tutorials...">
+            <button type="submit" id="search-submit"><i class='bx bx-search'></i> Search</button>
+        </form>
+        
+        <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <button class="btnLogin-popup">Join Now</button>
+        </ul>
+    </header>
+    
+    <div class="main-container">
+        <section class="hero">
+            <h1>Welcome to Exousia IT Solutions  <br> <span style="font-size:24px;">An Enginnering and Training Platform where we train individuals and build smarter solutions for businesses</span></h1>
+            
+            <p>We are your premier destination for all your software development, Learning, and  training</p>
+        <a href="about.html" class="btnLogin-popup">Learn More About Us</a>
+        </section>
+         <!-- Creative Coding Campus Section -->
+         <section class="creative-coding">
+            <h1>Creative Coding Campus</h1>
+            
+            <div class="modal" id="welcomeModal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal()">×</span>
+                    <h2>🎉 Welcome to Creative Coding Campus!</h2>
+                    <p>Explore games, apps, stories, and track your learning progress. Let's code something amazing together!</p>
+                    <button class="btn-form" onclick="closeModal()">Start Exploring</button>
+                </div>
+            </div>
+            
+            <div class="container">
+                <div class="nav-grid" id="navGrid">
+                    <div class="card"><strong>🎨 Student Dashboard</strong><a href="student-dashboard.html">Launch Dashboard</a></div>
+                    <div class="card"><strong>🎓 Certificate Generator</strong><a href="certificate.html">Get Certificate</a></div>
+                    <div class="card"><strong>👨‍👩‍👧‍👦 Parent Portal</strong><a href="parent.html">View Portal</a></div>
+                    <div class="card"><strong>👤 Edit Profile</strong><a href="#profile">Manage Profile</a></div>
+                    <div class="card"><strong>🎬 Video Tutorials</strong><a href="#videos">Watch Lessons</a></div>
+                    <div class="card"><strong>🧪 Daily Challenges</strong><a href="#challenges">Spin a Challenge</a></div>
+                    <div class="card"><strong>🚀 Boss-Level Quest</strong><a href="boss-level.html">Final Quest</a></div>
+                    <div class="card"><strong>🎉 Exit Game</strong><a href="goodbye.html">Offboarding</a></div>
+                </div>
+                
+                <div class="language-toggle">
+                    <button class="btn" onclick="toggleLanguage()">🌐 Toggle Language</button>
+                </div>
+            </div>
+        </section>
+        <!-- Content Display System -->
+        <div class="content-display-area">
+            <div class="content-section" id="index-content-display">
+                <h2>Homepage Content Preview</h2>
+                <div id="index-content-container"></div>
+                <button class="improve-btn" onclick="suggestContentImprovements()">Improve Content</button>
+            </div>
+            
+            <div class="content-section" id="nav-links-display">
+                <h2>Site Navigation Links</h2>
+                <div id="nav-links-container"></div>
+                <button class="improve-btn" onclick="suggestNavImprovements()">Improve Navigation</button>
+            </div>
+            
+            
+        </div>
+        
+       
+    </div>
+    
+    <!-- Login/Register Wrapper -->
+    <div class="wrapper">
+        <div class="form-box login">
+            <span class="icon-close">✖</span>
+            <h2>Login</h2>
+            <form action="#">
+                <div class="input-box">
+                    <input type="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <input type="password" required>
+                    <label>Password</label>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox"> Remember me</label>
+                    <a href="#">Forgot Password?</a>
+                </div>
+                <button type="submit" class="btn-form">Login</button>
+                <div class="login-register">
+                    <p>Don't have an account? <a href="#" class="register-link">Register</a></p>
+                </div>
+            </form>
+        </div>
+        
+        <div class="form-box register">
+            <span class="icon-close">✖</span>
+            <h2>Registration</h2>
+            <form action="#">
+                <div class="input-box">
+                    <input type="text" required>
+                    <label>Username</label>
+                </div>
+                <div class="input-box">
+                    <input type="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <input type="password" required>
+                    <label>Password</label>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox" required> I agree to the terms & conditions</label>
+                </div>
+                <button type="submit" class="btn-form">Register</button>
+                <div class="login-register">
+                    <p>Already have an account? <a href="#" class="login-link">Login</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section about">
+                <h3>Exousia IT Solutions</h3>
+                <p>We provide and build smarter solutions and cutting-edge software, learning, and  training in programming, networking, graphic/Animation, artificial intelligence and robotics to empower  businesses and individuals. </p>
+            </div>
+            
+            <div class="footer-section links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="register.html">Join</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="admin-login.html">Admin Login</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section contact">
+                <h4>Contact Us</h4>
+                <p><i class='bx bx-map'></i> Lafia, Nasarawa State, Nigeria</p>
+                <p><i class='bx bx-phone'></i> +234 816 346 4557</p>
+                <p><i class='bx bx-envelope'></i> support@roboclub.com</p>
+            </div>
+            
+            <div class="footer-section social">
+                <h4>Follow Us</h4>
+                <a href="#" target="_blank"><i class='bx bxl-facebook'></i> Facebook</a><br>
+                <a href="#" target="_blank"><i class='bx bxl-instagram'></i> Instagram</a><br>
+                <a href="#" target="_blank"><i class='bx bxl-twitter'></i> Twitter</a><br>
+                <a href="#" target="_blank"><i class='bx bxl-youtube'></i> YouTube</a>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 RoboClub Programmes. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+        </div>
+    </footer>
+    
+    <script>
+        // DOM Elements
+        const wrapper = document.querySelector('.wrapper');
+        const loginLink = document.querySelector('.login-link');
+        const registerLink = document.querySelector('.register-link');
+        const btnPopup = document.querySelector('.btnLogin-popup');
+        const iconClose = document.querySelector('.icon-close');
+        
+        // Login/Register Modal Toggle
+        registerLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            wrapper.classList.add('active');
+        });
+        
+        loginLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            wrapper.classList.remove('active');
+        });
+        
+        btnPopup.addEventListener('click', () => {
+            wrapper.classList.add('active-popup');
+        });
+        
+        iconClose.addEventListener('click', () => {
+            wrapper.classList.remove('active-popup');
+        });
+        
+        // Welcome Modal
+        function closeModal() {
+            document.getElementById("welcomeModal").style.display = "none";
+            localStorage.setItem('modalShown', 'true');
+        }
+        
+        // Language Toggle
+        let currentLang = "en";
+        const labels = {
+            en: {
+                title: "Creative Coding Campus",
+                dashboard: "Launch Dashboard",
+                cert: "Get Certificate",
+                parent: "View Portal",
+                profile: "Manage Profile",
+                tutorials: "Watch Lessons",
+                challenge: "Spin a Challenge",
+                boss: "Final Quest",
+                goodbye: "Offboarding"
+            },
+            es: {
+                title: "Campus de Programación Creativa",
+                dashboard: "Abrir Panel",
+                cert: "Obtener Certificado",
+                parent: "Portal para Padres",
+                profile: "Editar Perfil",
+                tutorials: "Ver Clases",
+                challenge: "Desafío Diario",
+                boss: "Misión Final",
+                goodbye: "Despedida"
+            }
+        };
+        
+        function toggleLanguage() {
+            currentLang = currentLang === "en" ? "es" : "en";
+            document.querySelector('.creative-coding h1').textContent = labels[currentLang].title;
+            const cards = document.querySelectorAll(".card a");
+            cards[0].textContent = labels[currentLang].dashboard;
+            cards[1].textContent = labels[currentLang].cert;
+            cards[2].textContent = labels[currentLang].parent;
+            cards[3].textContent = labels[currentLang].profile;
+            cards[4].textContent = labels[currentLang].tutorials;
+            cards[5].textContent = labels[currentLang].challenge;
+            cards[6].textContent = labels[currentLang].boss;
+            cards[7].textContent = labels[currentLang].goodbye;
+        }
+        
+        // Content Display System
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show welcome modal only once
+            if (!localStorage.getItem('modalShown')) {
+                document.getElementById("welcomeModal").style.display = "flex";
+            }
+            
+            // Display all navigation links
+            const navLinks = document.querySelectorAll('.nav-list a, .footer-section.links a');
+            const navContainer = document.getElementById('nav-links-container');
+            
+            navLinks.forEach(link => {
+                const linkElement = document.createElement('div');
+                linkElement.className = 'nav-link-display';
+                linkElement.innerHTML = `<a href="${link.href}" target="_blank">${link.innerHTML.trim()}</a>`;
+                navContainer.appendChild(linkElement);
+            });
+            
+            // Display index.html content highlights
+            const indexContainer = document.getElementById('index-content-container');
+            const mainContent = [
+                {title: "Hero Section", content: "Welcome message and call-to-action"},
+                {title: "Creative Coding Campus", content: "Interactive learning platform with 8 main features"},
+                {title: "Language Toggle", content: "Supports English and Spanish languages"},
+                {title: "Login/Register System", content: "User authentication system with modal popup"}
+            ];
+            
+            mainContent.forEach(item => {
+                const contentItem = document.createElement('div');
+                contentItem.className = 'content-item';
+                contentItem.innerHTML = `<h3>${item.title}</h3><p>${item.content}</p>`;
+                indexContainer.appendChild(contentItem);
+            });
+            
+            // Modify creative coding links to redirect to login if not authenticated
+            const creativeLinks = document.querySelectorAll('.card a');
+            creativeLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    if(!isLoggedIn()) {
+                        e.preventDefault();
+                        wrapper.classList.add('active-popup');
+                    }
+                });
+            });
+        });
+        
+        function isLoggedIn() {
+            // In a real implementation, this would check cookies/localStorage
+            // For demo purposes, always return false to show the login redirect
+            return false;
+        }
+        
+        // Improvement Suggestions
+        function suggestNavImprovements() {
+            const suggestions = [
+                "Add dropdown menus for nested navigation items",
+                "Implement a mega menu for course categories",
+                "Add visual indicators for external links",
+                "Include a breadcrumb navigation system",
+                "Highlight the current page in navigation",
+                "Add a 'Back to Top' button for long pages",
+                "Implement a sticky sub-navigation for course pages"
+            ];
+            
+            alert("Navigation Improvement Suggestions:\n\n- " + suggestions.join("\n- "));
+        }
+        
+        function suggestContentImprovements() {
+            const suggestions = [
+                "Add student testimonials with photos",
+                "Include instructor profiles with credentials",
+                "Add a 'Featured Courses' carousel",
+                "Implement a progress tracker for students",
+                "Add a resources/downloads section",
+                "Include a calendar of upcoming events",
+                "Add a 'Success Stories' section",
+                "Implement a searchable knowledge base"
+            ];
+            
+            alert("Content Improvement Suggestions:\n\n- " + suggestions.join("\n- "));
+        }
+    </script>
+</body>
+</html>

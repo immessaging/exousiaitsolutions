@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Embedded Systems & IoT Training</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8fdfc;
+      color: #333;
+}
+
+.container {
+      max-width: 850px;
+      margin: 50px auto;
+      padding: 25px;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 0 16px rgba(0,0,0,0.07);
+}
+
+    h1 {
+      text-align: center;
+      color: #24675a;
+}
+
+    h2 {
+      margin-top: 40px;
+      color: #164339;
+}
+
+    p {
+      font-size: 1.1em;
+      line-height: 1.6;
+}
+
+.tool {
+      background-color: #d4efe7;
+      padding: 20px;
+      margin-top: 30px;
+      border-left: 6px solid #24675a;
+}
+
+    button {
+      padding: 10px;
+      font-size: 1em;
+      width: 100%;
+      background-color: #24675a;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+}
+
+    button:hover {
+      background-color: #184c40;
+}
+
+    #output {
+      margin-top: 20px;
+      font-style: italic;
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔌 Embedded Systems & IoT Design Training</h1>
+    <p>
+      This course bridges hardware and software in the most exciting way—by building real-world smart devices!
+      Students explore microcontrollers, sensors, and wireless communication to design projects like home automation and wearable tech.
+      It's hands-on, deeply rewarding, and perfect for those curious about how everyday objects become intelligent.
+    </p>
+
+    <p>
+      Learners will use tools like <strong>ESP32</strong>, <strong>Arduino</strong>, and <strong>NodeMCU</strong> to build connected systems.
+      Projects may include creating a smart plant monitor, automatic door opener, or even an IoT-enabled weather station that sends live data to a phone app.
+    </p>
+
+    <p>
+      This course strengthens logic, electronics understanding, and cloud integration—all while encouraging invention. Parents love seeing functional devices powered by creative learning, and students love seeing their imaginations become smart tech reality.
+    </p>
+
+    <div class="tool">
+      <h2>🌐 Smart Device Idea Picker</h2>
+      <p>Click below to discover a cool IoT project idea to build!</p>
+      <button onclick="generateDevice()">Pick an IoT Project</button>
+      <div id="output"></div>
+    </div>
+  </div>
+
+  <script>
+    const ideas = [
+      "A voice-activated light controller using ESP32 and Google Assistant.",
+      "A smart trash can that signals when it’s full.",
+      "A wearable temperature monitor for kids.",
+      "An IoT pet tracker with GPS and Wi-Fi.",
+      "A motion-based home security alert system."
+    ];
+
+    function generateDevice() {
+      const idea = ideas[Math.floor(Math.random() * ideas.length)];
+      document.getElementById("output").textContent = "🔌 Idea: " + idea;
+}
+  </script>
+</body>
+</html>

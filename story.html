@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Level 4 – Story Spinner</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fdf5f9;
+      color: #333;
+}
+
+.header {
+      background-color: #ab47bc;
+      padding: 20px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+}
+
+.profile {
+      display: flex;
+      align-items: center;
+}
+
+.profile img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 10px;
+}
+
+.section {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 18px rgba(0,0,0,0.05);
+}
+
+    h1 {
+      color: #8e24aa;
+      text-align: center;
+}
+
+    h2 {
+      color: #6a1b9a;
+      margin-top: 30px;
+}
+
+    ul {
+      padding-left: 20px;
+}
+
+    button {
+      background-color: #ab47bc;
+      border: none;
+      color: white;
+      padding: 10px 16px;
+      margin-top: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+}
+
+    button:hover {
+      background-color: #7b1fa2;
+}
+
+    input[type="text"] {
+      padding: 5px;
+      width: 180px;
+      margin-right: 8px;
+}
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="profile">
+      <img src="https://via.placeholder.com/50" alt="Avatar" id="avatar" />
+      <span id="studentName">👤 Coder Name</span>
+    </div>
+    <div>
+      <input type="text" id="nameInput" placeholder="Edit your name" />
+      <button onclick="editName()">Save</button>
+      <button onclick="logout()">Logout</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <h1>🎭 Level 4: Story Spinner</h1>
+    <p>Welcome to the stage! In this level, you’ll become a digital storyteller. Create scenes, animate characters, and bring emotions and plot twists to life using Scratch.</p>
+
+    <h2>📌 Practice Area</h2>
+    <ul>
+      <li>Switch backdrops with <code>switch backdrop to</code> blocks</li>
+      <li>Use <code>broadcast</code> to transition between scenes</li>
+      <li>Record your own narration or sound effects</li>
+      <li>Use <code>wait</code> and <code>say</code> to pace your dialogue</li>
+    </ul>
+
+    <h2>🎯 Mini Tasks</h2>
+    <ul>
+      <li>Make a sprite walk into a scene, say something, and leave</li>
+      <li>Record 3 sounds to match emotions: happy, scared, excited</li>
+      <li>Change the costume of a sprite to show surprise or movement</li>
+    </ul>
+
+    <h2>🛠 Creative Project</h2>
+    <p><strong>Goal:</strong> Create a 3-scene story with two characters and a twist ending!</p>
+    <ul>
+      <li>Scene 1: Introduce characters and setting</li>
+      <li>Scene 2: Something unexpected happens (a mystery, a surprise visitor, a secret revealed!)</li>
+      <li>Scene 3: Resolve the scene with sound and celebration</li>
+    </ul>
+
+    <button onclick="alert('Story Spinner Badge Earned! 🎉')">✅ Mark Level 4 Complete</button>
+  </div>
+
+  <script>
+    function editName() {
+      const name = document.getElementById("nameInput").value;
+      if (name) {
+        document.getElementById("studentName").textContent = "👤 " + name;
+}
+}
+
+    function logout() {
+      alert("Logging out from your storybook. Until next chapter!");
+      window.location.href = "index.html"; // Replace with login or home page path
+}
+  </script>
+</body>
+</html>
+

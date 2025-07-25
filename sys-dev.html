@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>System Software Development Training</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f1f1f1;
+      color: #333;
+}
+
+.container {
+      max-width: 850px;
+      margin: 50px auto;
+      padding: 25px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+    h1 {
+      text-align: center;
+      color: #34495e;
+}
+
+    h2 {
+      margin-top: 40px;
+      color: #2c3e50;
+}
+
+    p {
+      font-size: 1.1em;
+      line-height: 1.6;
+}
+
+.highlight {
+      font-weight: bold;
+      color: #1e6b87;
+}
+
+.tool {
+      background-color: #dbe9f4;
+      padding: 20px;
+      margin-top: 30px;
+      border-left: 6px solid #34495e;
+}
+
+    input, button {
+      padding: 10px;
+      font-size: 1em;
+      width: 100%;
+      margin-top: 10px;
+      box-sizing: border-box;
+}
+
+    button {
+      background-color: #34495e;
+      color: white;
+      border: none;
+      cursor: pointer;
+}
+
+    button:hover {
+      background-color: #2c3e50;
+}
+
+    #output {
+      margin-top: 20px;
+      font-style: italic;
+      color: #333;
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🖥 System Software Development Training</h1>
+    <p>
+      Behind every device lies a system working quietly and powerfully. This advanced course dives into the nuts and bolts of computer science:
+      operating systems, file structures, memory management, and more. Ideal for curious minds ready to tackle the deeper logic of machines,
+      it's the perfect prep for future engineers and software architects.
+    </p>
+
+    <p>
+      Students will explore core system components such as the kernel, drivers, and compilers. Through hands-on labs and simulated environments,
+      they’ll see how data flows through the machine and learn to write efficient, low-level programs that interact directly with hardware.
+    </p>
+
+    <p>
+      By the end of the course, your child will understand how software and hardware cooperate at the most fundamental level—essential knowledge for
+      creating more reliable, secure, and lightning-fast systems.
+    </p>
+
+    <div class="tool">
+      <h2>⚙ System Task Explorer</h2>
+      <p>Want to know what system tasks are happening behind the scenes? Type a keyword like <code>memory</code>, <code>process</code>, or <code>interrupt</code>.</p>
+      <input type="text" id="task-input" placeholder="Enter a system topic..." />
+      <button onclick="showInfo()">Explore</button>
+      <div id="output"></div>
+    </div>
+  </div>
+
+  <script>
+    const systemTopics = {
+      memory: "Memory management involves allocating RAM efficiently to applications and processes, ensuring speed and stability.",
+      process: "A process is an instance of a running program. The system software schedules and manages these processes concurrently.",
+      interrupt: "An interrupt is a signal that pauses the CPU's current activity to handle an event—critical for responsive computing."
+};
+
+    function showInfo() {
+      const input = document.getElementById('task-input').value.trim().toLowerCase();
+      const output = document.getElementById('output');
+      if (systemTopics[input]) {
+        output.textContent = "🔍 " + systemTopics[input];
+} else {
+        output.textContent = "No info available for that topic. Try 'memory', 'process', or 'interrupt'.";
+}
+}
+  </script>
+</body>
+</html>
+

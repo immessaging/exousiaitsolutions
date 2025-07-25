@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Certificate of Completion</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      margin: 0;
+      padding: 0;
+      background: #fefdf6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+}
+
+.certificate {
+      width: 800px;
+      max-width: 95%;
+      padding: 40px;
+      text-align: center;
+      border: 12px solid #bfa98d;
+      border-radius: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.certificate h1 {
+      font-size: 2.5em;
+      margin-bottom: 0.2em;
+      color: #a67c52;
+}
+
+.certificate h2 {
+      font-size: 1.4em;
+      color: #555;
+}
+
+.student-name {
+      font-size: 2em;
+      margin: 30px 0;
+      color: #333;
+      font-weight: bold;
+}
+
+.achievement {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+}
+
+.date {
+      font-size: 1em;
+      color: #777;
+      margin-top: 20px;
+}
+
+.footer {
+      margin-top: 60px;
+      font-style: italic;
+      color: #888;
+}
+
+.btn {
+      margin-top: 30px;
+      padding: 12px 20px;
+      background-color: #a67c52;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1em;
+      cursor: pointer;
+}
+
+.btn:hover {
+      background-color: #8b6c48;
+}
+
+    @media print {
+      body {
+        background: white;
+}
+
+.btn {
+        display: none;
+}
+}
+  </style>
+</head>
+<body>
+  <div class="certificate">
+    <h1>🎓 Certificate of Completion</h1>
+    <h2>This certifies that</h2>
+    <div class="student-name" id="studentName">[Your Name]</div>
+    <div class="achievement">has successfully completed all levels of the Creative Coding Quest with excellence in game design, storytelling, and app creation.</div>
+    <div class="date" id="certDate">Dated: [Today’s Date]</div>
+
+    <div class="footer">“Creativity is intelligence having fun.” – Albert Einstein</div>
+    <button class="btn" onclick="printCertificate()">🖨 Print or Save</button>
+  </div>
+
+  <script>
+    function printCertificate() {
+      window.print();
+}
+
+    // Optional auto-fill with name and today's date
+    window.onload = function () {
+      const name = localStorage.getItem("coderName") || "Creative Coder";
+      const today = new Date().toLocaleDateString();
+      document.getElementById("studentName").textContent = name;
+      document.getElementById("certDate").textContent = `Dated: ${today}`;
+};
+  </script>
+</body>
+</html>
+

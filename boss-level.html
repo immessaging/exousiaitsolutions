@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Boss Level Challenge</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fffef3;
+      color: #333;
+      margin: 0;
+      padding: 0;
+}
+
+.header {
+      background-color: #fbc02d;
+      color: white;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+}
+
+.profile {
+      display: flex;
+      align-items: center;
+}
+
+.profile img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 10px;
+}
+
+.section {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.05);
+}
+
+    h1 {
+      color: #fbc02d;
+      text-align: center;
+}
+
+    h2 {
+      color: #f9a825;
+      margin-top: 30px;
+}
+
+    ul {
+      padding-left: 20px;
+}
+
+    button {
+      background-color: #fbc02d;
+      border: none;
+      color: white;
+      padding: 10px 16px;
+      margin-top: 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+}
+
+    button:hover {
+      background-color: #f9a825;
+}
+
+    input[type="text"] {
+      padding: 5px;
+      width: 180px;
+      margin-right: 8px;
+}
+
+.reward {
+      background: #fff9c4;
+      padding: 20px;
+      border-left: 6px solid #fbc02d;
+      margin-top: 25px;
+      border-radius: 8px;
+}
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="profile">
+      <img src="https://via.placeholder.com/50" alt="Avatar" id="avatar" />
+      <span id="studentName">👤 Coder Name</span>
+    </div>
+    <div>
+      <input type="text" id="nameInput" placeholder="Edit your name" />
+      <button onclick="editName()">Save</button>
+      <button onclick="logout()">Logout</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <h1>🎓 Boss Level Challenge: The Ultimate Quest</h1>
+    <p>You’ve mastered animations, games, apps, and stories—and now it’s time to build your masterpiece. The challenge is to design and build your own mini game app with a story intro, scoring system, and animation magic.</p>
+
+    <h2>💡 Mission Brief</h2>
+    <ul>
+      <li>🏁 Create a title screen with custom name and sound</li>
+      <li>🧙‍♀ Introduce a character and plot using speech bubbles and movement</li>
+      <li>⚔ Launch a mini challenge—player must interact to earn points or solve a puzzle</li>
+      <li>🎉 Reward the player with a fun ending or surprise screen</li>
+    </ul>
+
+    <h2>🧠 Bonus Elements</h2>
+    <ul>
+      <li>Use <strong>broadcast</strong> and <strong>when I receive</strong> blocks for scene control</li>
+      <li>Track score or progress with a variable</li>
+      <li>Include one sound, one animation, and one twist ending</li>
+    </ul>
+
+    <div class="reward">
+      <h2>🏆 Earn Your Final Badge</h2>
+      <p>Complete this Boss Level and unlock the <strong>Creative Champion</strong> badge! 🥇</p>
+      <button onclick="alert('🎖 Creative Champion Badge Unlocked! You did it!')">✅ Claim Badge</button>
+    </div>
+  </div>
+
+  <script>
+    function editName() {
+      const name = document.getElementById("nameInput").value;
+      if (name) {
+        document.getElementById("studentName").textContent = "👤 " + name;
+}
+}
+
+    function logout() {
+      alert("Your story continues soon, Champion. Logging out!");
+      window.location.href = "index.html"; // Replace with login or home page
+}
+  </script>
+</body>
+</html>
+

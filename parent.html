@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Parent Portal – Creative Coding Quest</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f1f8fc;
+      margin: 0;
+      padding: 0;
+      color: #333;
+}
+
+.container {
+      max-width: 950px;
+      margin: 40px auto;
+      padding: 30px;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 0 16px rgba(0,0,0,0.06);
+}
+
+    h1 {
+      text-align: center;
+      color: #2196f3;
+      margin-bottom: 10px;
+}
+
+    h2 {
+      color: #1976d2;
+      margin-top: 30px;
+}
+
+    ul {
+      padding-left: 20px;
+}
+
+.student-info {
+      background-color: #e3f2fd;
+      padding: 15px;
+      border-left: 6px solid #2196f3;
+      border-radius: 8px;
+      margin-bottom: 25px;
+}
+
+.student-info img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      float: left;
+      margin-right: 15px;
+}
+
+.highlight {
+      background: #bbdefb;
+      padding: 10px;
+      border-radius: 6px;
+      margin-top: 15px;
+}
+
+.btn {
+      background-color: #2196f3;
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 15px;
+}
+
+.btn:hover {
+      background-color: #1976d2;
+}
+
+.note {
+      font-style: italic;
+      margin-top: 20px;
+      color: #555;
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>👨‍👩‍👧‍👦 Parent Portal</h1>
+    <p style="text-align:center;">Monitor your child's progress and celebrate their creative coding achievements!</p>
+
+    <div class="student-info">
+      <img src="https://via.placeholder.com/60" alt="Student Avatar" />
+      <strong>Name:</strong> <span id="studentName">Coder Name</span><br />
+      <strong>Level Status:</strong> Completed Levels 1–4<br />
+      <strong>Badge Count:</strong> 🏅🏅🏅🏅
+    </div>
+
+    <div class="highlight">
+      <h2>🎯 Achievements Summary</h2>
+      <ul>
+        <li>✔ Learned animation basics and event blocks</li>
+        <li>✔ Built games with score + logic (Level 2)</li>
+        <li>✔ Developed apps with MIT App Inventor (Level 3)</li>
+        <li>✔ Created custom stories and voice narration (Level 4)</li>
+        <li>🚀 Boss Level Challenge pending</li>
+      </ul>
+    </div>
+
+    <div class="highlight">
+      <h2>🎓 Certificate Status</h2>
+      <p>Certificate generated on: <span id="certDate">Not yet generated</span></p>
+      <button class="btn" onclick="generateCertificate()">Generate Certificate</button>
+      <div id="certificate"></div>
+    </div>
+
+    <div class="highlight">
+      <h2>📌 Activity Notes</h2>
+      <ul>
+        <li>✅ Student logged in and updated profile recently</li>
+        <li>✅ Participated in daily challenges</li>
+        <li>✅ Viewed project templates for Level 3 and 4</li>
+      </ul>
+    </div>
+
+    <p class="note">Note: This portal is view-only. Parents can follow progress, download certificates, and cheer learners along!</p>
+  </div>
+
+  <script>
+    function generateCertificate() {
+      const name = document.getElementById("studentName").textContent;
+      const today = new Date().toLocaleDateString();
+      document.getElementById("certDate").textContent = today;
+      document.getElementById("certificate").textContent =
+        `🎓 Creative Coding Quest Completion\n\nThis certifies that ${name} has completed all core levels of the program.\nGenerated: ${today}`;
+}
+  </script>
+  <h2 style="margin-top: 40px; color: #c2185b;">📺 Dashboard Tutorial</h2>
+<p>Watch this short guide on how to use your dashboard effectively:</p>
+
+<div style="margin-top: 15px;">
+  <iframe width="100%" height="315"
+    src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+    title="Creative Coding Dashboard Walkthrough"
+    frameborder="0"
+    allowfullscreen
+    style="border-radius: 12px; box-shadow: 0 4px 14px rgba(0,0,0,0.1);"></iframe>
+</div>
+
+<h2 style="color:#c2185b; margin-top: 40px;">📺 Video Tutorials</h2>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+  <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" width="100%" height="250" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" width="100%" height="250" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" width="100%" height="250" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/VIDEO_ID_4" width="100%" height="250" allowfullscreen></iframe>
+</div>
+<h2 style="margin-top: 40px; color: #c2185b;">👨‍👩‍👧 Parent Video Tutorials</h2>
+<div class="tutorial-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+  <iframe src="https://www.youtube.com/embed/PARENT_INTRO_ID" title="Intro for Parents" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/PARENT_PROGRESS_ID" title="Monitoring Progress" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/PARENT_CERTIFICATE_ID" title="Viewing Certificates" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/PARENT_SUPPORT_ID" title="Supporting at Home" allowfullscreen></iframe>
+</div>
+
+</body>
+</html>
+

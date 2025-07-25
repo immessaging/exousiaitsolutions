@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creative Coding for Beginners</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fdf6ff;
+      color: #333;
+}
+
+.container {
+      max-width: 850px;
+      margin: 50px auto;
+      padding: 25px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+    h1 {
+      text-align: center;
+      color: #7e3e9e;
+}
+
+    h2 {
+      margin-top: 40px;
+      color: #602e7a;
+}
+
+    p {
+      font-size: 1.1em;
+      line-height: 1.6;
+}
+
+.tool {
+      background-color: #f0e0ff;
+      padding: 20px;
+      margin-top: 30px;
+      border-left: 6px solid #7e3e9e;
+}
+
+    button {
+      padding: 10px;
+      font-size: 1em;
+      width: 100%;
+      background-color: #7e3e9e;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+}
+
+    button:hover {
+      background-color: #602e7a;
+}
+
+    #output {
+      margin-top: 20px;
+      font-style: italic;
+}
+a {
+    text-decoration: none;
+    border: groove green 2px;
+    border-radius: 15px;
+    background-color: green;
+    color:white;
+    padding:12px;
+    margin-top: 15px;
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎨 Creative Coding for Beginners</h1>
+    <p>
+      This beginner-friendly course helps students step into programming with intuitive drag-and-drop tools like <strong>Scratch</strong> and <strong>MIT App Inventor</strong>.
+      These platforms empower kids to build games, animations, and mobile apps without needing complex syntax—just imagination and flow!
+    </p>
+
+    <p>
+      Students will create fun projects like animated stories, reaction games, and quiz apps. They’ll learn logic, sequencing, design, and event-driven thinking—
+      all while playing with blocks instead of code! Scratch teaches foundational concepts, while MIT App Inventor introduces mobile logic and sensors.
+    </p>
+
+    <p>
+      Parents love that kids not only gain digital literacy, but also boost creativity, problem-solving, and confidence. No prior experience needed—
+      just a curious mind and a desire to build something awesome.
+    </p>
+  <a href="more.html">For more Click</a>
+    <div class="tool">
+      <h2>🎲 Project Idea Roller</h2>
+      <p>Need inspiration for your next Scratch or App Inventor project? Click below!</p>
+      <button onclick="rollIdea()">Roll an Idea</button>
+      <div id="output"></div>
+    </div>
+  </div>
+
+  <script>
+    const ideas = [
+      "Design a Scratch game where a cat catches falling stars!",
+      "Make an MIT App Inventor quiz app to test your friends on fun facts.",
+      "Create a storytelling animation with characters that talk and move.",
+      "Build an app that turns phone tilt into movement commands.",
+      "Invent a math puzzle game with a timer and score system."
+    ];
+
+    function rollIdea() {
+      const result = ideas[Math.floor(Math.random() * ideas.length)];
+      document.getElementById("output").textContent = "🎨 Idea: " + result;
+}
+  </script>
+</body>
+</html>

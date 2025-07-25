@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Machine Learning & AI Training</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f8fb;
+      color: #333;
+}
+
+.container {
+      max-width: 850px;
+      margin: 50px auto;
+      padding: 25px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+    h1 {
+      text-align: center;
+      color: #2e3d59;
+}
+
+    h2 {
+      margin-top: 40px;
+      color: #263346;
+}
+
+    p {
+      font-size: 1.1em;
+      line-height: 1.6;
+}
+
+.highlight {
+      font-weight: bold;
+      color: #1a73e8;
+}
+
+.tool {
+      background-color: #e4ebf5;
+      padding: 20px;
+      margin-top: 30px;
+      border-left: 6px solid #2e3d59;
+}
+
+    button {
+      padding: 10px;
+      font-size: 1em;
+      width: 100%;
+      background-color: #2e3d59;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+}
+
+    button:hover {
+      background-color: #1f2c41;
+}
+
+    #output {
+      margin-top: 20px;
+      font-style: italic;
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🤖 Machine Learning & AI Training</h1>
+    <p>
+      Empower your child to build the future! This exciting course demystifies AI by guiding students through the foundations of data, algorithms, neural networks, and machine learning models—using fun, hands-on experiments. From image recognition to chatbot creation, students unlock the secrets of intelligent systems while gaining a powerful head start in tomorrow's tech landscape.
+    </p>
+
+    <p>
+      With engaging challenges like building simple classifiers, predicting game scores, and designing logic for virtual assistants, students explore how machines "learn" from data and make decisions. They also learn critical thinking: when models work, when they fail, and how to improve them.
+    </p>
+
+    <p>
+      This course turns buzzwords like <span class="highlight">deep learning</span> and <span class="highlight">natural language processing</span> into hands-on projects that spark excitement and creativity. Parents appreciate the real-world relevance, and students love that they’re not just studying—they’re shaping the future.
+    </p>
+
+    <div class="tool">
+      <h2>🧠 Mini AI Predictor</h2>
+      <p>Click below to simulate a simple prediction from an imaginary AI model!</p>
+      <button onclick="predictOutcome()">Predict Outcome</button>
+      <div id="output"></div>
+    </div>
+  </div>
+
+  <script>
+    const predictions = [
+      "Your AI predicts sunny skies and 92% chance of a perfect weekend.",
+      "The model estimates you'll create 3 apps this year—starting now!",
+      "AI sees high probability of inventing a robot that walks the dog.",
+      "The algorithm favors bold students with a knack for neural networks.",
+      "Prediction: You’ll code something today that makes someone smile."
+    ];
+
+    function predictOutcome() {
+      const result = predictions[Math.floor(Math.random() * predictions.length)];
+      document.getElementById("output").textContent = "🔮 " + result;
+}
+  </script>
+</body>
+</html>
+

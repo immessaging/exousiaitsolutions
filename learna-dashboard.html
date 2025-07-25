@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Student Dashboard – Creative Coding Quest</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff8fc;
+      margin: 0;
+      padding: 0;
+      color: #333;
+}
+
+.container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 30px;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.08);
+}
+
+    h1 {
+      text-align: center;
+      color: #c63c93;
+      margin-bottom: 10px;
+}
+
+    h2 {
+      color: #933069;
+      margin-top: 30px;
+}
+
+.profile {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #fbe4f2;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 25px;
+}
+
+.profile-left {
+      display: flex;
+      align-items: center;
+}
+
+.profile-left img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin-right: 10px;
+}
+
+.profile-actions input[type="text"] {
+      padding: 6px;
+      margin-right: 8px;
+      width: 160px;
+}
+
+.profile-actions button {
+      background-color: #c63c93;
+      color: white;
+      padding: 8px 14px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+}
+
+.profile-actions button:hover {
+      background-color: #a12d75;
+}
+
+.level {
+      background-color: #fbe4f2;
+      padding: 15px;
+      margin-top: 20px;
+      border-left: 6px solid #c63c93;
+      border-radius: 8px;
+}
+
+    ul {
+      margin: 10px 0 0 20px;
+}
+
+.badge {
+      background: #c63c93;
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 50px;
+      margin-right: 5px;
+      font-size: 0.9em;
+      display: inline-block;
+}
+
+.btn {
+      display: block;
+      width: 100%;
+      margin-top: 15px;
+      padding: 12px;
+      font-size: 1em;
+      background-color: #c63c93;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+}
+
+.btn:hover {
+      background-color: #a12d75;
+}
+
+    #challenge, #certificate {
+      margin-top: 20px;
+      font-style: italic;
+      font-size: 1.1em;
+      color: #444;
+}
+
+.progress {
+      background-color: #f0d6ec;
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 25px;
+}
+
+.progress ul {
+      margin: 0;
+}
+
+.progress-title {
+      font-weight: bold;
+      margin-bottom: 10px;
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎨 Student Dashboard</h1>
+
+    <div class="profile">
+      <div class="profile-left">
+        <img src="https://via.placeholder.com/60" alt="Avatar" id="avatar" />
+        <span id="studentName">👤 Coder Name</span>
+      </div>
+      <div class="profile-actions">
+        <input type="text" id="nameInput" placeholder="Edit your name" />
+        <button onclick="editName()">Save</button>
+        <button onclick="logout()">Logout</button>
+      </div>
+    </div>
+
+    <h2>🧭 Your Progress Levels</h2>
+
+    <div class="level">
+      <strong>Level 1: Code Explorer</strong>
+      <ul>
+        <li>✔ Understand events and movement</li>
+        <li>✔ Create simple animations</li>
+        <li>🔓 Badge: <span class="badge"><a href="explore.html">Explorer</a></span></li>
+      </ul>
+    </div>
+
+    <div class="level">
+      <strong>Level 2: Game Builder</strong>
+      <ul>
+        <li>✔ Create score-based game</li>
+        <li>✔ Use sound effects and timers</li>
+        <li>🔓 Badge: <span class="badge"><a href="hero-game.html">Game Hero</a></span></li>
+      </ul>
+    </div>
+
+    <div class="level">
+      <strong>Level 3: App Designer</strong>
+      <ul>
+        <li>✔ Build a quiz app in MIT App Inventor</li>
+        <li>✔ Use multiple screens</li>
+        <li>🔓 Badge: <span class="badge"><a href="app-creator.html">App Creator</a></span></li>
+      </ul>
+    </div>
+
+    <div class="level">
+      <strong>Level 4: Story Crafter</strong>
+      <ul>
+        <li>✔ Animate a multi-scene story</li>
+        <li>✔ Add custom sounds and twists</li>
+        <li>🔓 Badge: <span class="badge"><a href="story.html">Story Spinner</a></span></li>
+      </ul>
+    </div>
+
+    <a href="boss-level.html"><strong>🔥 Boss-Level Challenge</strong></a>
+
+    <div class="progress">
+      <div class="progress-title">📈 Your Progress Tracker</div>
+      <ul>
+        <li>4 Levels Completed ✅</li>
+        <li>1 Boss Challenge Pending 🚧</li>
+        <li>Total Badges Earned: 🏅 4</li>
+        <li>Estimated Skill Rating: ⭐⭐⭐⭐</li>
+      </ul>
+    </div>
+
+    <h2>🎓 Certificate of Completion</h2>
+    <button class="btn" onclick="generateCertificate()">Generate Certificate</button>
+    <div id="certificate"></div>
+
+    <h2>🧪 Today’s Challenge</h2>
+    <button class="btn" onclick="revealChallenge()">🎲 Get Challenge</button>
+    <div id="challenge"></div>
+  </div>
+
+  <script>
+    const missions = [
+      "🎮 Build a Scratch game where a dragon races across lava!",
+      "📱 Create an App Inventor app that tracks school grades!",
+      "🎭 Animate a play with three characters and a surprise ending!",
+      "🌌 Code a space scene with stars that twinkle and fade!",
+      "🐾 Design a virtual pet that reacts when clicked!"
+    ];
+
+    function revealChallenge() {
+      const pick = missions[Math.floor(Math.random() * missions.length)];
+      document.getElementById("challenge").textContent = pick;
+}
+
+    function editName() {
+      const name = document.getElementById("nameInput").value;
+      if (name) {
+        document.getElementById("studentName").textContent = "👤 " + name;
+        document.getElementById("certificate").textContent = ""; // Reset certificate if name changes
+}
+}
+
+    function logout() {
+      alert("Goodbye, Creative Coder!");
+      window.location.href = "index.html"; // Replace with login or home page
+}
+
+    function generateCertificate() {
+      const nameText = document.getElementById("studentName").textContent.replace("👤 ", "");
+      const message = 🎓 Certificate of Completion\n\nThis certifies that ${nameText} has completed all Creative Coding Quest Levels. You’re a Creative Champion! 🏆;
+      document.getElementById("certificate").textContent = message;
+}
+  </script>
+</body>
+</html>

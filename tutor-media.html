@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Creative Coding Tutorials</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #fffafc, #e3f2fd);
+      margin: 0;
+      padding: 40px 20px;
+      color: #333;
+}
+
+    h1 {
+      text-align: center;
+      font-size: 2em;
+      color: #c2185b;
+      margin-bottom: 40px;
+}
+
+.section {
+      margin-bottom: 50px;
+}
+
+.video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+}
+
+.video-card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 14px rgba(0,0,0,0.06);
+}
+
+.video-card h3 {
+      margin-top: 0;
+      font-size: 1.2em;
+      color: #1976d2;
+}
+
+.video-card p {
+      font-size: 0.9em;
+      margin-bottom: 10px;
+}
+
+    iframe {
+      border-radius: 12px;
+      width: 100%;
+      height: 215px;
+}
+
+    @media screen and (max-width: 600px) {
+      iframe {
+        height: 180px;
+}
+}
+  </style>
+</head>
+<body>
+  <h1>📚 Campus Tutorials</h1>
+
+  <!-- Learner Section -->
+  <div class="section">
+    <h2 style="color:#1976d2;">🎓 Learner Tutorials</h2>
+    <div class="video-grid">
+      <div class="video-card">
+        <h3>Dashboard Overview</h3>
+        <p>How to navigate and use your dashboard</p>
+        <iframe src="https://www.youtube.com/embed/LEARNER_OVERVIEW_ID" allowfullscreen></iframe>
+      </div>
+      <div class="video-card">
+        <h3>Completing Challenges</h3>
+        <p>How to spin and submit daily creative tasks</p>
+        <iframe src="https://www.youtube.com/embed/LEARNER_CHALLENGES_ID" allowfullscreen></iframe>
+      </div>
+      <div class="video-card">
+        <h3>Badges & Certificates</h3>
+        <p>Earn badges and print your achievement certificate</p>
+        <iframe src="https://www.youtube.com/embed/LEARNER_BADGES_ID" allowfullscreen></iframe>
+      </div>
+      <div class="video-card">
+        <h3>Learning via Video Tools</h3>
+        <p>Using Scratch, App Inventor, and VS Code tutorials</p>
+        <iframe src="https://www.youtube.com/embed/LEARNER_TOOLS_ID" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Parent Section -->
+  <div class="section">
+    <h2 style="color:#c2185b;">👨‍👩‍👧 Parent Tutorials</h2>
+    <div class="video-grid">
+      <div class="video-card">
+        <h3>Welcome to Creative Coding</h3>
+        <p>What the campus offers your child</p>
+        <iframe src="https://www.youtube.com/embed/PARENT_INTRO_ID" allowfullscreen></iframe>
+      </div>
+      <div class="video-card">
+        <h3>Monitoring Student Progress</h3>
+        <p>Track levels, badges, and learning growth</p>
+        <iframe src="https://www.youtube.com/embed/PARENT_PROGRESS_ID" allowfullscreen></iframe>
+      </div>
+      <div class="video-card">
+        <h3>Viewing Certificates</h3>
+        <p>How to print and share your learner’s success</p>
+        <iframe src="https://www.youtube.com/embed/PARENT_CERTIFICATE_ID" allowfullscreen></iframe>
+      </div>
+      <div class="video-card">
+        <h3>Supporting At-Home Practice</h3>
+        <p>Tips for guiding learning outside the classroom</p>
+        <iframe src="https://www.youtube.com/embed/PARENT_SUPPORT_ID" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Optional: Add More Tutorials Later -->
+  <!-- Insert additional <div class="video-card"> entries here with new iframe links -->
+</body>
+</html>
+
+

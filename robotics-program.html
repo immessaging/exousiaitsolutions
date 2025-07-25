@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Robotics & AI Development Training</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f7f6;
+      color: #333;
+}
+
+.container {
+      max-width: 850px;
+      margin: 50px auto;
+      padding: 25px;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 0 16px rgba(0,0,0,0.08);
+}
+
+    h1 {
+      text-align: center;
+      color: #2f5c5e;
+}
+
+    h2 {
+      margin-top: 40px;
+      color: #204647;
+}
+
+    p {
+      font-size: 1.1em;
+      line-height: 1.6;
+}
+
+.tool {
+      background-color: #d1eae9;
+      padding: 20px;
+      margin-top: 30px;
+      border-left: 6px solid #2f5c5e;
+}
+
+    button {
+      padding: 10px;
+      font-size: 1em;
+      width: 100%;
+      background-color: #2f5c5e;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+}
+
+    button:hover {
+      background-color: #1b393a;
+}
+
+    #output {
+      margin-top: 20px;
+      font-style: italic;
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🤖 Robotics & AI Development Training</h1>
+    <p>
+      Combining mechanical curiosity with programming flair, this robotics course lets students bring machines to life.
+      Using platforms like <strong>Arduino</strong> and <strong>Raspberry Pi</strong>, they’ll build and program robots
+      that interact with the world—detecting light, avoiding obstacles, and even making decisions. It’s STEM learning in motion,
+      designed to thrill future inventors.
+    </p>
+
+    <p>
+      From wiring circuits to writing sensor logic, students will gain a solid foundation in electronics, embedded programming,
+      and problem-solving. Each project will challenge their creativity—whether it’s building a smart pet feeder or a line-following
+      robot that races classmates.
+    </p>
+
+    <p>
+      Parents will love the emphasis on teamwork, engineering principles, and safety. Kids will love commanding their very own creations
+      with just a few lines of code. The future isn’t just digital—it’s mechanical, and it moves!
+    </p>
+
+    <div class="tool">
+      <h2>⚡ Robot Idea Spinner</h2>
+      <p>Need some inspiration for your next robot? Spin the virtual wheel!</p>
+      <button onclick="spinRobot()">Spin Idea</button>
+      <div id="output"></div>
+    </div>
+  </div>
+
+  <script>
+    const robotIdeas = [
+      "A robot that waters your plants when the soil gets dry.",
+      "A security rover that alerts you when it hears strange sounds.",
+      "A maze-solving bot with ultrasonic sensors.",
+      "A light-chasing solar rover.",
+      "A mini garbage collector that cleans up your desk!"
+    ];
+
+    function spinRobot() {
+      const idea = robotIdeas[Math.floor(Math.random() * robotIdeas.length)];
+      document.getElementById("output").textContent = "🤖 Idea: " + idea;
+}
+  </script>
+</body>
+</html>
+

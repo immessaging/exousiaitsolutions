@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Creative Campus Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9f9fb;
+      margin: 0;
+      color: #333;
+}
+
+    header {
+      background: #6a1b9a;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+}
+
+    header h1 {
+      margin: 0;
+      font-size: 2.2em;
+}
+
+.container {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 0 20px;
+}
+
+.post {
+      background: white;
+      margin-bottom: 30px;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.post h2 {
+      margin-top: 0;
+      color: #4a148c;
+}
+
+.meta {
+      font-size: 0.9em;
+      color: #777;
+      margin-bottom: 10px;
+}
+
+.excerpt {
+      display: block;
+}
+
+.full-content {
+      display: none;
+      margin-top: 10px;
+}
+
+    button.read-more {
+      background: #6a1b9a;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+}
+
+.interactions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 15px;
+}
+
+.interactions button {
+      margin-right: 10px;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      font-size: 1em;
+}
+
+.comments {
+      margin-top: 20px;
+}
+
+.comments h4 {
+      margin-bottom: 5px;
+}
+
+.comments textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 5px;
+}
+
+.comments button {
+      padding: 6px 12px;
+      background: #4a148c;
+      color: white;
+      border: none;
+      border-radius: 6px;
+}
+
+.rating span {
+      font-size: 1.5em;
+      cursor: pointer;
+      color: #ccc;
+}
+
+.rating span.active {
+      color: gold;
+}
+
+.subscribe,.signup {
+      margin: 30px auto;
+      max-width: 500px;
+      padding: 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.subscribe input,.signup input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+}
+
+.subscribe button,.signup button {
+      padding: 10px;
+      width: 100%;
+      background: #6a1b9a;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+}
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #888;
+      font-size: 0.85em;
+}
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Creative Campus Blog</h1>
+    <p>Inspiration, Updates & Community Stories</p>
+  </header>
+
+  <div class="container">
+    <div class="post">
+      <h2>🎉 Launching Our New Dashboard</h2>
+      <div class="meta">Posted on July 8, 2025 by Admin</div>
+      <p class="excerpt">We’re thrilled to unveil our brand new student dashboard—a personalized space where coders can spin challenges, track progress, and earn badges.</p>
+      <p class="full-content">The dashboard includes a spinner for creative tasks, video tutorials, badge management, and certificate generation. This gamified approach boosts student motivation and gives teachers better tools to monitor growth. Parents can now view progress with clean visuals and upcoming milestones—so everyone stays in the loop.</p>
+      <button class="read-more" onclick="toggleRead(this)">Read More</button>
+
+      <div class="interactions">
+        <div>
+            <button onclick="likePost(this)">❤ <span class="like-count">0</span></button>
+            <button onclick="sharePost()">🔗 Share</button>
+          </div>
+          <div class="rating">
+            <span onclick="rate(this,1)">★</span>
+            <span onclick="rate(this,2)">★</span>
+            <span onclick="rate(this,3)">★</span>
+            <span onclick="rate(this,4)">★</span>
+            <span onclick="rate(this,5)">★</span>
+          </div>
+        </div>
+  
+        <div class="comments">
+          <h4>Comments</h4>
+          <textarea id="commentInput" placeholder="Share your thoughts..."></textarea>
+          <button onclick="addComment()">Post Comment</button>
+          <ul id="commentList"></ul>
+        </div>
+      </div>
+      <div class="container">
+        <div class="post">
+          <h2>🎉 Launching Our New Dashboard</h2>
+          <div class="meta">Posted on July 8, 2025 by Admin</div>
+          <p class="excerpt">We’re thrilled to unveil our brand new student dashboard—a personalized space where coders can spin challenges, track progress, and earn badges.</p>
+          <p class="full-content">The dashboard includes a spinner for creative tasks, video tutorials, badge management, and certificate generation. This gamified approach boosts student motivation and gives teachers better tools to monitor growth. Parents can now view progress with clean visuals and upcoming milestones—so everyone stays in the loop.</p>
+          <button class="read-more" onclick="toggleRead(this)">Read More</button>
+    
+          <div class="interactions">
+            <div>
+                <button onclick="likePost(this)">❤ <span class="like-count">0</span></button>
+                <button onclick="sharePost()">🔗 Share</button>
+              </div>
+              <div class="rating">
+                <span onclick="rate(this,1)">★</span>
+                <span onclick="rate(this,2)">★</span>
+                <span onclick="rate(this,3)">★</span>
+                <span onclick="rate(this,4)">★</span>
+                <span onclick="rate(this,5)">★</span>
+              </div>
+            </div>
+      
+            <div class="comments">
+              <h4>Comments</h4>
+              <textarea id="commentInput" placeholder="Share your thoughts..."></textarea>
+              <button onclick="addComment()">Post Comment</button>
+              <ul id="commentList"></ul>
+            </div>
+          </div>
+          <div class="container">
+            <div class="post">
+              <h2>🎉 Launching Our New Dashboard</h2>
+              <div class="meta">Posted on July 8, 2025 by Admin</div>
+              <p class="excerpt">We’re thrilled to unveil our brand new student dashboard—a personalized space where coders can spin challenges, track progress, and earn badges.</p>
+              <p class="full-content">The dashboard includes a spinner for creative tasks, video tutorials, badge management, and certificate generation. This gamified approach boosts student motivation and gives teachers better tools to monitor growth. Parents can now view progress with clean visuals and upcoming milestones—so everyone stays in the loop.</p>
+              <button class="read-more" onclick="toggleRead(this)">Read More</button>
+        
+              <div class="interactions">
+                <div>
+                    <button onclick="likePost(this)">❤ <span class="like-count">0</span></button>
+                    <button onclick="sharePost()">🔗 Share</button>
+                  </div>
+                  <div class="rating">
+                    <span onclick="rate(this,1)">★</span>
+                    <span onclick="rate(this,2)">★</span>
+                    <span onclick="rate(this,3)">★</span>
+                    <span onclick="rate(this,4)">★</span>
+                    <span onclick="rate(this,5)">★</span>
+                  </div>
+                </div>
+          
+                <div class="comments">
+                  <h4>Comments</h4>
+                  <textarea id="commentInput" placeholder="Share your thoughts..."></textarea>
+                  <button onclick="addComment()">Post Comment</button>
+                  <ul id="commentList"></ul>
+                </div>
+              </div>
+              <div class="container">
+                <div class="post">
+                  <h2>🎉 Launching Our New Dashboard</h2>
+                  <div class="meta">Posted on July 8, 2025 by Admin</div>
+                  <p class="excerpt">We’re thrilled to unveil our brand new student dashboard—a personalized space where coders can spin challenges, track progress, and earn badges.</p>
+                  <p class="full-content">The dashboard includes a spinner for creative tasks, video tutorials, badge management, and certificate generation. This gamified approach boosts student motivation and gives teachers better tools to monitor growth. Parents can now view progress with clean visuals and upcoming milestones—so everyone stays in the loop.</p>
+                  <button class="read-more" onclick="toggleRead(this)">Read More</button>
+            
+                  <div class="interactions">
+                    <div>
+                        <button onclick="likePost(this)">❤ <span class="like-count">0</span></button>
+                        <button onclick="sharePost()">🔗 Share</button>
+                      </div>
+                      <div class="rating">
+                        <span onclick="rate(this,1)">★</span>
+                        <span onclick="rate(this,2)">★</span>
+                        <span onclick="rate(this,3)">★</span>
+                        <span onclick="rate(this,4)">★</span>
+                        <span onclick="rate(this,5)">★</span>
+                      </div>
+                    </div>
+              
+                    <div class="comments">
+                      <h4>Comments</h4>
+                      <textarea id="commentInput" placeholder="Share your thoughts..."></textarea>
+                      <button onclick="addComment()">Post Comment</button>
+                      <ul id="commentList"></ul>
+                    </div>
+                  </div>
+                          
+      <div class="subscribe">
+        <h3>📩 Subscribe to Our Updates</h3>
+        <input type="email" placeholder="Your email" />
+        <button onclick="alert('Thanks for subscribing!')">Subscribe</button>
+      </div>
+  
+      <div class="signup">
+        <h3>🔐 Create a Free Account</h3>
+        <input type="text" placeholder="Name" />
+        <input type="email" placeholder="Email" />
+        <input type="password" placeholder="Password" />
+        <button onclick="alert('Signup successful (mock)!')">Sign Up</button>
+      </div>
+    </div>
+  
+    <footer>
+      &copy; 2025 Creative Coding Campus | Blog for thinkers, dreamers and doers 🌟
+    </footer>
+  
+    <script>
+      function toggleRead(btn) {
+        const post = btn.parentElement;
+        const excerpt = post.querySelector('.excerpt');
+        const full = post.querySelector('.full-content');
+        if (full.style.display === 'block') {
+          full.style.display = 'none';
+          btn.textContent = 'Read More';
+  } else {
+          full.style.display = 'block';
+          btn.textContent = 'Show Less';
+  }
+  }
+  
+      function likePost(btn) {
+        const countSpan = btn.querySelector('.like-count');
+        let count = parseInt(countSpan.textContent);
+        count++;
+        countSpan.textContent = count;
+  }
+  
+      function sharePost() {
+        const url = window.location.href;
+        if (navigator.share) {
+          navigator.share({ title: 'Campus Blog', url});
+  } else {
+          prompt("Copy link to share:", url);
+  }
+  }
+  
+      function addComment() {
+        const input = document.getElementById('commentInput');
+        const list = document.getElementById('commentList');
+        const text = input.value;
+        if (text.trim()) {
+          const li = document.createElement('li');
+          li.textContent = ${new Date().toLocaleString()}: ${text};
+          list.appendChild(li);
+          input.value = '';
+  }
+  }
+  
+      function rate(el, stars) {
+        const allStars = el.parentElement.querySelectorAll('span');
+        allStars.forEach((star, i) => {
+          star.classList.toggle('active', i < stars);
+  });
+        localStorage.setItem('postRating', stars);
+  }
+  
+      window.onload = () => {
+        const savedRating = localStorage.getItem('postRating');
+        if (savedRating) {
+          const stars = document.querySelectorAll('.rating span');
+          stars.forEach((star, i) => {
+            star.classList.toggle('active', i < savedRating);
+  });
+  }
+  };
+    </script>
+  
+  </body>
+  </html>
+ 

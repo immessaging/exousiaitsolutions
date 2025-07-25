@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Level 2 – Game Hero</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4fbf1;
+      color: #333;
+}
+
+.header {
+      background-color: #4caf50;
+      padding: 20px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+}
+
+.profile {
+      display: flex;
+      align-items: center;
+}
+
+.profile img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 10px;
+}
+
+.section {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 18px rgba(0,0,0,0.05);
+}
+
+    h1 {
+      color: #388e3c;
+      text-align: center;
+}
+
+    h2 {
+      color: #2e7d32;
+      margin-top: 30px;
+}
+
+    ul {
+      padding-left: 20px;
+}
+
+    button {
+      background-color: #4caf50;
+      border: none;
+      color: white;
+      padding: 10px 16px;
+      margin-top: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+}
+
+    button:hover {
+      background-color: #2e7d32;
+}
+
+    input[type="text"] {
+      padding: 5px;
+      width: 180px;
+      margin-right: 8px;
+}
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="profile">
+      <img src="https://via.placeholder.com/50" alt="Avatar" id="avatar" />
+      <span id="studentName">👤 Coder Name</span>
+    </div>
+    <div>
+      <input type="text" id="nameInput" placeholder="Edit your name" />
+      <button onclick="editName()">Save</button>
+      <button onclick="logout()">Logout</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <h1>🎮 Level 2: Game Hero</h1>
+    <p>Time to level up! Now that you're comfortable with Scratch basics, let’s turn your ideas into games! Think challenges, scoring, and player feedback.</p>
+
+    <h2>📌 Practice Area</h2>
+    <ul>
+      <li>Use <code>if</code> blocks to detect conditions (e.g. touching edge)</li>
+      <li>Track score with variables like <code>change score by 1</code></li>
+      <li>Add sound effects and win/lose messages</li>
+    </ul>
+
+    <h2>🎯 Mini Tasks</h2>
+    <ul>
+      <li>Create a sprite that moves only when a specific key is held</li>
+      <li>Build a timer that counts down from 10</li>
+      <li>Display a “You Win!” or “Try Again” screen based on score</li>
+    </ul>
+
+    <h2>🛠 Creative Project</h2>
+    <p><strong>Goal:</strong> Build a game where the player catches falling objects to earn points!</p>
+    <ul>
+      <li>Use <strong>“pick random”</strong> to drop items from the top</li>
+      <li>Let the player move left/right with arrow keys</li>
+      <li>Keep track of score and end the game after 30 seconds</li>
+    </ul>
+
+    <button onclick="alert('Game Hero Achievement Unlocked! 🏆')">✅ Mark Level 2 Complete</button>
+  </div>
+
+  <script>
+    function editName() {
+      const name = document.getElementById("nameInput").value;
+      if (name) {
+        document.getElementById("studentName").textContent = "👤 " + name;
+}
+}
+
+    function logout() {
+      alert("You've logged out. Come back soon, Game Hero!");
+      window.location.href = "index.html"; // Replace with login or home page
+}
+  </script>
+</body>
+</html>
+

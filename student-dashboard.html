@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Dashboard – Creative Coding Quest</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff8fc;
+      margin: 0;
+      padding: 0;
+      color: #333;
+}
+
+.container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 30px;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.08);
+}
+
+    h1 {
+      text-align: center;
+      color: #c63c93;
+      margin-bottom: 10px;
+}
+
+    h2 {
+      color: #933069;
+      margin-top: 30px;
+}
+
+.level {
+      background-color: #fbe4f2;
+      padding: 15px;
+      margin-top: 20px;
+      border-left: 6px solid #c63c93;
+      border-radius: 8px;
+}
+
+    ul {
+      margin: 10px 0 0 20px;
+}
+
+.badge {
+      background: #c63c93;
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 50px;
+      margin-right: 5px;
+      font-size: 0.9em;
+      display: inline-block;
+}
+
+.btn {
+      display: block;
+      width: 100%;
+      margin-top: 15px;
+      padding: 12px;
+      font-size: 1em;
+      background-color: #c63c93;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+}
+
+.btn:hover {
+      background-color: #a12d75;
+}
+
+    #challenge {
+      margin-top: 20px;
+      font-style: italic;
+      font-size: 1.1em;
+      color: #444;
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎨 Student Dashboard</h1>
+    <p style="text-align:center;">Welcome, Creative Coder! Track your adventure below.</p>
+
+    <h2>🧭 Your Progress Levels</h2>
+
+    <div class="level">
+      <strong>Level 1: Code Explorer</strong>
+      <ul>
+        <li>✔ Understand events and movement in Scratch</li>
+        <li>✔ Create simple animations</li>
+        <li>🔓 Unlock badge: <span class="badge"></span><a href="explore.html">Explorer</a></li>
+      </ul>
+    </div>
+
+    <div class="level">
+      <strong>Level 2: Game Builder</strong>
+      <ul>
+        <li>✔ Design a point-based game with score</li>
+        <li>✔ Add sound effects and timers</li>
+        <li>🔓 Unlock badge: <span class="badge"></span><a href="hero-game.html">Game Hero</a></li>
+      </ul>
+    </div>
+
+    <div class="level">
+      <strong>Level 3: App Designer</strong>
+      <ul>
+        <li>✔ Make a quiz app in MIT App Inventor</li>
+        <li>✔ Customize colors and buttons</li>
+        <li>🔓 Unlock badge: <span class="badge"></span><a href="app-creator.html">App Creator</a></li>
+      </ul>
+    </div>
+
+    <div class="level">
+      <strong>Level 4: Story Crafter</strong>
+      <ul>
+        <li>✔ Animate a multi-scene narrative</li>
+        <li>✔ Record custom sounds</li>
+        <li>🔓 Unlock badge: <span class="badge"></span><a href="story.html">Story Spinner</a></li>
+      </ul>
+    </div>
+    <a href="boss-level.html">Click for Boss-Level Challenge</a>
+
+    <h2>🧪 Today's Challenge</h2>
+    <p>Click below to reveal a new mission!</p>
+    <button class="btn" onclick="revealChallenge()">🎲 Get Challenge</button>
+    <div id="challenge"></div>
+  </div>
+
+  <script>
+    const missions = [
+      "🎮 Build a Scratch game where a dragon races across lava!",
+      "📱 Create an App Inventor app that tracks school grades!",
+      "🎭 Animate a play with three characters and a surprise ending!",
+      "🌌 Code a space scene with stars that twinkle and fade!",
+      "🐾 Design a virtual pet that reacts when clicked!"
+    ];
+
+    function revealChallenge() {
+      const pick = missions[Math.floor(Math.random() * missions.length)];
+      document.getElementById("challenge").textContent = pick;
+}
+  </script>
+</body>
+</html>
+

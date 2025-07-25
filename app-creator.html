@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Level 3 – App Creator</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fff7f2;
+      color: #333;
+}
+
+.header {
+      background-color: #ff7043;
+      padding: 20px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+}
+
+.profile {
+      display: flex;
+      align-items: center;
+}
+
+.profile img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 10px;
+}
+
+.section {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 18px rgba(0,0,0,0.05);
+}
+
+    h1 {
+      color: #e64a19;
+      text-align: center;
+}
+
+    h2 {
+      color: #d84315;
+      margin-top: 30px;
+}
+
+    ul {
+      padding-left: 20px;
+}
+
+    button {
+      background-color: #ff7043;
+      border: none;
+      color: white;
+      padding: 10px 16px;
+      margin-top: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+}
+
+    button:hover {
+      background-color: #d84315;
+}
+
+    input[type="text"] {
+      padding: 5px;
+      width: 180px;
+      margin-right: 8px;
+}
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="profile">
+      <img src="https://via.placeholder.com/50" alt="Avatar" id="avatar" />
+      <span id="studentName">👤 Coder Name</span>
+    </div>
+    <div>
+      <input type="text" id="nameInput" placeholder="Edit your name" />
+      <button onclick="editName()">Save</button>
+      <button onclick="logout()">Logout</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <h1>📱 Level 3: App Creator</h1>
+    <p>It's time to go mobile! In this level, you’ll build your first real apps using MIT App Inventor—fun, functional, and made to run on phones and tablets.</p>
+
+    <h2>📌 Practice Area</h2>
+    <ul>
+      <li>Learn block coding in App Inventor’s visual editor</li>
+      <li>Trigger actions with <code>Button.Click</code> and <code>TextBox</code> blocks</li>
+      <li>Use <code>Notifier</code> to display messages</li>
+    </ul>
+
+    <h2>🎯 Mini Tasks</h2>
+    <ul>
+      <li>Make a button that shows a custom greeting</li>
+      <li>Build a simple calculator that adds two numbers</li>
+      <li>Create a form that displays input on a new screen</li>
+    </ul>
+
+    <h2>🛠 Creative Project</h2>
+    <p><strong>Goal:</strong> Build a personal quiz app that tests users on fun topics (like sports, cartoons, or animals!)</p>
+    <ul>
+      <li>Use multiple screens with <strong>questions + answers</strong></li>
+      <li>Add images and sound effects</li>
+      <li>Show a score and give feedback (like “Well done!” or “Oops!”)</li>
+    </ul>
+
+    <button onclick="alert('App Creator Achievement Unlocked! 🏅')">✅ Mark Level 3 Complete</button>
+  </div>
+
+  <script>
+    function editName() {
+      const name = document.getElementById("nameInput").value;
+      if (name) {
+        document.getElementById("studentName").textContent = "👤 " + name;
+}
+}
+
+    function logout() {
+      alert("Logging out, App Inventor hero. See you soon!");
+      window.location.href = "index.html"; // Replace with login or dashboard page
+}
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Level 1 – Code Explorer</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f0fcff;
+      color: #333;
+}
+
+.header {
+      background-color: #209ab4;
+      padding: 20px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+}
+
+.profile {
+      display: flex;
+      align-items: center;
+}
+
+.profile img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 10px;
+}
+
+.section {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 18px rgba(0,0,0,0.05);
+}
+
+    h1 {
+      color: #209ab4;
+      text-align: center;
+}
+
+    h2 {
+      color: #1c768a;
+      margin-top: 30px;
+}
+
+    ul {
+      padding-left: 20px;
+}
+
+    button {
+      background-color: #209ab4;
+      border: none;
+      color: white;
+      padding: 10px 16px;
+      margin-top: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+}
+
+    button:hover {
+      background-color: #166c7a;
+}
+
+    input[type="text"] {
+      padding: 5px;
+      width: 180px;
+      margin-right: 8px;
+}
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="profile">
+      <img src="https://via.placeholder.com/50" alt="Avatar" id="avatar">
+      <span id="studentName">👤 Coder Name</span>
+    </div>
+    <div>
+      <input type="text" id="nameInput" placeholder="Edit your name" />
+      <button onclick="editName()">Save</button>
+      <button onclick="logout()">Logout</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <h1>🧭 Level 1: Code Explorer</h1>
+    <p>You're just starting out—let’s get warmed up! Learn the basic movements, events, and explore interactive code blocks.</p>
+
+    <h2>📌 Practice Area</h2>
+    <ul>
+      <li>Use <code>when green flag clicked</code> to start an animation</li>
+      <li>Explore <code>move 10 steps</code> and <code>say Hello</code></li>
+      <li>Try changing costume using <code>next costume</code></li>
+    </ul>
+
+    <h2>🎯 Mini Tasks</h2>
+    <ul>
+      <li>Make a sprite walk left and right with arrow keys</li>
+      <li>Animate a cat saying “Welcome!” when clicked</li>
+      <li>Change background color when space bar is pressed</li>
+    </ul>
+
+    <h2>🛠 Creative Project</h2>
+    <p><strong>Goal:</strong> Build a simple title screen for your story or game!</p>
+    <ul>
+      <li>Add a character and a colorful background</li>
+      <li>Include a title and “Start Game” message</li>
+      <li>Play a short sound when the flag is clicked</li>
+    </ul>
+
+    <button onclick="alert('You completed Level 1! 🎉')">✅ Mark Level 1 Complete</button>
+  </div>
+
+  <script>
+    function editName() {
+      const name = document.getElementById("nameInput").value;
+      if(name) {
+        document.getElementById("studentName").textContent = "👤 " + name;
+}
+}
+
+    function logout() {
+      alert("See you next time, explorer!");
+      window.location.href = "index.html"; // Replace with login or home page
+}
+  </script>
+</body>
+</html>

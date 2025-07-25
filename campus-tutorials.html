@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Creative Coding Tutorials</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fffafc;
+      padding: 40px 20px;
+      color: #333;
+}
+
+    h1 {
+      text-align: center;
+      font-size: 2em;
+      color: #c2185b;
+      margin-bottom: 30px;
+}
+
+.search-filter {
+      text-align: center;
+      margin-bottom: 30px;
+}
+
+    input[type="text"] {
+      padding: 8px;
+      width: 250px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+}
+
+.filter-btn {
+      background: #c2185b;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      margin: 5px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.9em;
+}
+
+.filter-btn.active {
+      background: #8e1244;
+}
+
+.section {
+      margin-top: 40px;
+}
+
+.video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+}
+
+.video-card {
+      background: white;
+      padding: 18px;
+      border-radius: 12px;
+      box-shadow: 0 0 14px rgba(0,0,0,0.06);
+}
+
+.video-card h3 {
+      margin-top: 0;
+      font-size: 1.1em;
+      color: #1976d2;
+}
+
+.video-card p {
+      font-size: 0.9em;
+      margin-bottom: 10px;
+}
+
+    iframe {
+      border-radius: 12px;
+      width: 100%;
+      height: 215px;
+}
+
+.tags {
+      margin-top: 6px;
+}
+
+.tag {
+      display: inline-block;
+      background: #e0f2f1;
+      color: #00796b;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 0.75em;
+      margin: 2px;
+}
+
+    @media screen and (max-width: 600px) {
+      iframe {
+        height: 180px;
+}
+}
+h1 {
+    text-align: center;
+    font-size: 2em;
+    color: #6a1b9a;
+    margin-bottom: 30px;
+}
+
+.filters,.admin-form {
+    max-width: 1000px;
+    margin: auto;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.search-bar {
+    padding: 8px;
+    width: 250px;
+    border-radius: 6px;
+    border: 1px solid #aaa;
+}
+
+.filter-btn {
+    display: inline-block;
+    background: #8e24aa;
+    color: white;
+    padding: 6px 12px;
+    margin: 4px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.85em;
+}
+.filter-btn.active {
+    background: #4a0072;
+}
+
+.audience-tabs button {
+    padding: 6px 14px;
+    margin: 4px;
+    border-radius: 6px;
+    border: 1px solid #8e24aa;
+    background: white;
+    color: #8e24aa;
+    cursor: pointer;
+}
+
+.audience-tabs button.active {
+    background: #8e24aa;
+    color: white;
+}
+
+.video-grid {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.2s;
+}
+.card:hover {
+    transform: scale(1.015);
+}
+
+.thumb {
+    width: 100%;
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.thumb::after {
+    content: "▶ Watch";
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    font-size: 0.8em;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.info {
+    padding: 15px;
+}
+
+.info h3 {
+    margin-top: 0;
+    font-size: 1em;
+    color: #6a1b9a;
+}
+
+.info p {
+    font-size: 0.85em;
+}
+
+.tags {
+    margin-top: 5px;
+}
+
+.tag {
+    display: inline-block;
+    background: #e1bee7;
+    color: #4a148c;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.75em;
+    margin: 2px;
+}
+
+.actions {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8em;
+}
+
+.star {
+    cursor: pointer;
+}
+
+.iframe-wrap {
+    display: none;
+}
+
+.admin-form {
+    margin-top: 60px;
+    border-top: 2px solid #ccc;
+    padding-top: 20px;
+}
+
+  textarea {
+    width: 90%;
+    height: 80px;
+    margin-top: 10px;
+}
+
+  iframe {
+    width: 100%;
+    height: 220px;
+    border: none;
+}
+
+  @media screen and (max-width: 600px) {
+.thumb::after {
+      font-size: 0.6em;
+}
+}
+
+  </style>
+</head>
+<body>
+  <h1>📚 Campus Tutorials</h1>
+
+  <div class="search-filter">
+    <input type="text" id="searchInput" placeholder="Search tutorials..." />
+    <div id="tagFilters"></div>
+  </div>
+
+  <div id="tutorialSections"></div>
+  <h1>🎓 Creative Coding Campus Tutorials</h1>
+
+  <div class="filters">
+    <input id="searchInput" class="search-bar" type="text" placeholder="Search tutorials..." />
+    <div class="audience-tabs">
+      <button onclick="setAudience('all')" id="tab-all" class="active">All</button>
+      <button onclick="setAudience('learner')" id="tab-learner">Learners</button>
+      <button onclick="setAudience('parent')" id="tab-parent">Parents</button>
+    </div>
+    <div id="tagFilters"></div>
+  </div>
+<div class="video-grid" id="tutorialContainer"></div>
+
+  <div class="admin-form">
+    <h3>➕ Generate JSON for New Tutorial</h3>
+    <input type="text" id="newTitle" placeholder="Title" />
+    <input type="text" id="newDesc" placeholder="Description" />
+    <input type="text" id="newAudience" placeholder="Audience (learner/parent)" />
+    <input type="text" id="newTags" placeholder="Tags (comma separated)" />
+    <input type="text" id="newVideoID" placeholder="YouTube Video ID" />
+    <button onclick="generateTutorial()">Generate</button>
+    <textarea id="jsonOutput" readonly></textarea>
+  </div>
+
+
+  <script>
+    let tutorials = [];
+    let activeTag = "";
+
+    // Load tutorials from JSON
+    fetch('tutorials.json')
+.then(res => res.json())
+.then(data => {
+        tutorials = data;
+        renderTags();
+        renderTutorials();
+});
+
+    // Render tutorials grouped by audience
+    function renderTutorials() {
+      const search = document.getElementById("searchInput").value.toLowerCase();
+      const container = document.getElementById("tutorialSections");
+      container.innerHTML = "";
+
+      const audiences = [...new Set(tutorials.map(t => t.audience))];
+
+      audiences.forEach(aud => {
+        const section = document.createElement("div");
+        section.className = "section";
+        section.innerHTML = <h2 style="color:${aud === 'learner'? '#1976d2': '#c2185b'};">${capitalize(aud)} Tutorials</h2>;
+
+        const grid = document.createElement("div");
+        grid.className = "video-grid";
+
+        tutorials
+.filter(t => t.audience === aud)
+.filter(t =>
+            t.title.toLowerCase().includes(search) ||
+            t.description.toLowerCase().includes(search)
+)
+.filter(t => activeTag === "" || t.tags.includes(activeTag))
+.forEach(t => {
+            const card = document.createElement("div");
+            card.className = "video-card";
+            card.innerHTML = `
+              <h3>${t.title}</h3>
+              <p>${t.description}</p>
+              <iframe src="${t.video}" allowfullscreen></iframe>
+              <div class="tags">${t.tags.map(tag => <span class="tag">${tag}</span>).join('')}</div>
+            `;
+            grid.appendChild(card);
+});
+
+        section.appendChild(grid);
+        container.appendChild(section);
+    });
+}
+
+    function renderTags() {
+      const allTags = [...new Set(tutorials.flatMap(t => t.tags))];
+      const tagContainer = document.getElementById("tagFilters");
+
+      allTags.forEach(tag => {
+        const btn = document.createElement("button");
+        btn.className = "filter-btn";
+        btn.textContent = #${tag};
+        btn.onclick = () => {
+          if (activeTag === tag) {
+            activeTag = "";
+            btn.classList.remove("active");
+} else {
+            activeTag = tag;
+            document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+}
+          renderTutorials();
+};
+        tagContainer.appendChild(btn);
+});
+}
+
+    document.getElementById("searchInput").addEventListener("input", renderTutorials);
+
+    function capitalize(s) {
+      return s.charAt(0).toUpperCase() + s.slice(1);
+}
+let tutorials = [];
+    let activeTag = "";
+    let filterAudience = "all";
+
+    fetch("tutorials.json")
+.then(res => res.json())
+.then(data => {
+        tutorials = data;
+        renderTags();
+        renderTutorials();
+});
+
+    function renderTags() {
+      const allTags = [...new Set(tutorials.flatMap(t => t.tags))];
+      const tagHTML = allTags.map(tag => <button class="filter-btn ${tag === activeTag? 'active': ''}" onclick="toggleTag('${tag}')">#${tag}</button>).join('');
+      document.getElementById("tagFilters").innerHTML = tagHTML;
+}
+
+    function toggleTag(tag) {
+      activeTag = (activeTag === tag)? "": tag;
+      renderTags();
+      renderTutorials();
+}
+
+    function setAudience(aud) {
+      filterAudience = aud;
+      document.querySelectorAll('.audience-tabs button').forEach(btn => btn.classList.remove('active'));
+      document.getElementById(tab-${aud}).classList.add('active');
+      renderTutorials();
+}
+function renderTutorials() {
+    const search = document.getElementById("searchInput").value.toLowerCase();
+    const container = document.getElementById("tutorialContainer");
+    container.innerHTML = "";
+
+    const favorites = JSON.parse(localStorage.getItem("favTutorials") || "[]");
+    const recent = JSON.parse(localStorage.getItem("recentTutorials") || "[]");
+
+    tutorials
+.filter(t =>
+        (filterAudience === "all" || t.audience === filterAudience) &&
+        (activeTag === "" || t.tags.includes(activeTag)) &&
+        (t.title.toLowerCase().includes(search) || t.description.toLowerCase().includes(search))
+)
+.forEach((tut, index) => {
+        const card = document.createElement("div");
+        card.className = "card";
+        const fav = favorites.includes(tut.title);
+        const iframe = Object.values(tut.languages)[0]; // default language
+
+        card.innerHTML = `
+          <div class="thumb" style="background-image:url('${tut.thumbnail}')" onclick="openVideo(this, '${iframe}', '${tut.title}')"></div>
+          <div class="info">
+            <h3>${tut.title}</h3>
+            <p>${tut.description}</p>
+            <div class="tags">${tut.tags.map(t => <span class="tag">${t}</span>).join('')}</div>
+            <div class="actions">
+              <span class="star" onclick="toggleFav('${tut.title}', this)">${fav? "⭐": "☆"} Favorite</span>
+              <span class="lang">Lang: ${Object.keys(tut.languages).join(', ')}</span>
+             </div>
+            </div>
+            <div class="iframe-wrap"></div>
+          `;
+          container.appendChild(card);
+});
+}
+
+    function openVideo(el, url, title) {
+      const iframeWrap = el.parentElement.querySelector(".iframe-wrap");
+      iframeWrap.innerHTML = <iframe src="${url}" allowfullscreen></iframe>;
+      iframeWrap.style.display = "iframe";
+}
+
+    function toggleFav(title, el) {
+      let favorites = JSON.parse(localStorage.getItem("favTutorials") || "[]");
+      if (favorites.includes(title)) {
+        favorites = favorites.filter(f => f!== title);
+        el.textContent = "☆ Favorite";
+} else {
+        favorites.push(title);
+        el.textContent = "⭐ Favorite";
+}
+      localStorage.setItem("favTutorials", JSON.stringify(favorites));
+}
+
+    function generateTutorial() {
+      const title = document.getElementById("newTitle").value;
+      const description = document.getElementById("newDesc").value;
+      const audience = document.getElementById("newAudience").value;
+      const tags = document.getElementById("newTags").value.split(",").map(t => t.trim());
+      const videoID = document.getElementById("newVideoID").value;
+      const entry = {
+        title,
+        description,
+        audience,
+        tags,
+        languages: {
+          en: https://www.youtube.com/embed/${videoID}
+        },
+        thumbnail: https://img.youtube.com/vi/${videoID}/0.jpg
+};
+      document.getElementById("jsonOutput").value = JSON.stringify(entry, null, 2);
+}
+
+    document.getElementById("searchInput").addEventListener("input", renderTutorials);
+
+  </script>
+</body>
+</html>

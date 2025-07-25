@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Development Training</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #eef1f7;
+      color: #333;
+}
+
+.container {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 16px rgba(0,0,0,0.1);
+}
+
+    h1 {
+      text-align: center;
+      color: #2d4b73;
+}
+
+    h2 {
+      margin-top: 40px;
+      color: #1b3050;
+}
+
+    p {
+      font-size: 1.1em;
+      line-height: 1.6;
+}
+
+.tool {
+      background-color: #dce4f2;
+      padding: 20px;
+      margin-top: 30px;
+      border-left: 6px solid #2d4b73;
+}
+
+    select, button {
+      margin-top: 10px;
+      padding: 10px;
+      font-size: 1em;
+      width: 100%;
+      box-sizing: border-box;
+}
+
+    button {
+      background-color: #2d4b73;
+      color: white;
+      border: none;
+      cursor: pointer;
+}
+
+    button:hover {
+      background-color: #1b3050;
+}
+
+    #output {
+      margin-top: 20px;
+      font-style: italic;
+      color: #333;
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>💻 Web Development Training</h1>
+    <p>
+      Ever wonder how your favorite websites are built? In this immersive course, students will create stunning and responsive websites
+      from scratch using HTML, CSS, JavaScript, and powerful frameworks like React. Not only will they learn to code, they'll develop the
+      design sense and problem-solving skills that bring ideas to digital life—skills that shine on school projects, personal portfolios, and beyond.
+    </p>
+
+    <p>
+      Students will begin by understanding the building blocks of the web—HTML for structure, CSS for style, and JavaScript for behavior.
+      As they progress, they'll build interactive pages, responsive layouts, and even deploy their own websites online. Parents love how tangible
+      each achievement is, and students love showing off their creations in class and online!
+    </p>
+
+    <p>
+      Our goal is simple: turn curious learners into confident creators. This course promotes not only technical growth, but creativity,
+      storytelling, and visual thinking that elevates digital communication.
+    </p>
+
+    <div class="tool">
+      <h2>🧰 HTML Tag Explorer</h2>
+      <p>Select an HTML tag below to learn what it does and how to use it!</p>
+      <select id="tag-select">
+        <option value="">--Choose a Tag--</option>
+        <option value="p">&lt;p&gt;</option>
+        <option value="h1">&lt;h1&gt;</option>
+        <option value="img">&lt;img&gt;</option>
+        <option value="a">&lt;a&gt;</option>
+        <option value="ul">&lt;ul&gt;</option>
+      </select>
+      <button onclick="showTag()">Show Info</button>
+      <div id="output"></div>
+    </div>
+  </div>
+
+  <script>
+    const tagInfo = {
+      "p": "The <p> tag defines a paragraph. It's used to separate blocks of text in HTML.",
+      "h1": "The <h1> tag represents a top-level heading, typically used as a page title.",
+      "img": "The <img> tag embeds an image into the webpage. It requires a 'src' and 'alt' attribute.",
+      "a": "The <a> tag creates hyperlinks, allowing users to navigate to other pages or websites.",
+      "ul": "The <ul> tag creates an unordered (bulleted) list, commonly used for menus or lists."
+};
+
+    function showTag() {
+        const select = document.getElementById('tag-select');
+      const selectedTag = select.value;
+      const output = document.getElementById('output');
+      output.textContent = selectedTag?💡${tagInfo[selectedTag]}: "Please select a tag.";
+}
+  </script>
+</body>
+</html>

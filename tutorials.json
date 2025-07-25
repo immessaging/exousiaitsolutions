@@ -1,0 +1,80 @@
+[
+  {
+    "title": "Dashboard Overview",
+    "description": "How to navigate and use your dashboard",
+    "audience": "learner",
+    "tags": ["dashboard", "overview", "navigation"],
+    "video": "https://www.youtube.com/embed/LEARNER_OVERVIEW_ID"
+},
+  {
+    "title": "Completing Challenges",
+    "description": "How to spin and submit daily creative tasks",
+    "audience": "learner",
+    "tags": ["challenges", "daily"],
+    "video": "https://www.youtube.com/embed/LEARNER_CHALLENGES_ID"
+},
+  {
+    "title": "Badges & Certificates",
+    "description": "Earn badges and print your achievement certificate",
+    "audience": "learner",
+    "tags": ["badges", "certificate", "reward"],
+    "video": "https://www.youtube.com/embed/LEARNER_BADGES_ID"
+},
+  {
+    "title": "Learning via Video Tools",
+    "description": "Using Scratch, App Inventor, and VS Code",
+    "audience": "learner",
+    "tags": ["tools", "learning", "videos"],
+    "video": "https://www.youtube.com/embed/LEARNER_TOOLS_ID"
+},
+  {
+    "title": "Welcome to Creative Coding",
+    "description": "An intro for parents about the platform",
+    "audience": "parent",
+    "tags": ["intro", "campus"],
+    "video": "https://www.youtube.com/embed/PARENT_INTRO_ID"
+},
+  {
+    "title": "Monitoring Student Progress",
+    "description": "How parents can see levels, badges, and growth",
+    "audience": "parent",
+    "tags": ["progress", "tracking"],
+    "video": "https://www.youtube.com/embed/PARENT_PROGRESS_ID"
+},
+  {
+    "title": "Viewing Certificates",
+    "description": "How to print and share certificates",
+    "audience": "parent",
+    "tags": ["certificate", "achievement"],
+    "video": "https://www.youtube.com/embed/PARENT_CERTIFICATE_ID"
+},
+  {
+    "title": "Supporting At-Home Practice",
+    "description": "Tips to support learning outside the classroom",
+    "audience": "parent",
+    "tags": ["support", "home", "practice"],
+    "video": "https://www.youtube.com/embed/PARENT_SUPPORT_ID"
+}
+  {
+    "title": "Dashboard Overview",
+    "description": "Learn how to navigate and personalize your dashboard.",
+    "audience": "learner",
+    "tags": ["dashboard", "navigation", "overview"],
+    "languages": {
+      "en": "https://www.youtube.com/embed/LEARNER_OVERVIEW_ID"
+},
+    "thumbnail": "https://img.youtube.com/vi/LEARNER_OVERVIEW_ID/0.jpg"
+},
+  {
+    "title": "Monitoring Progress",
+    "description": "See how parents can track learner achievements.",
+    "audience": "parent",
+    "tags": ["progress", "tracking"],
+    "languages": {
+      "en": "https://www.youtube.com/embed/PARENT_PROGRESS_ID"
+},
+    "thumbnail": "https://img.youtube.com/vi/PARENT_PROGRESS_ID/0.jpg"
+}
+ 
+
+]

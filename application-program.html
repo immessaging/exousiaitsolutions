@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mobile App Development Training</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f3f5f9;
+      color: #333;
+}
+
+.container {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+    h1 {
+      color: #2b7a78;
+      text-align: center;
+}
+
+    p {
+      font-size: 1.1em;
+      line-height: 1.6;
+}
+
+.highlight {
+      font-weight: bold;
+      color: #205c63;
+}
+
+.tool-section {
+      margin-top: 40px;
+      padding: 20px;
+      background: #e6f2f0;
+      border-left: 6px solid #2b7a78;
+}
+
+    input, button {
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 1em;
+      width: 100%;
+      box-sizing: border-box;
+}
+
+    button {
+      background-color: #2b7a78;
+      color: white;
+      border: none;
+      cursor: pointer;
+}
+
+    button:hover {
+      background-color: #205c63;
+}
+
+    #idea-output {
+      margin-top: 20px;
+      font-style: italic;
+}
+a {
+    text-decoration: none;
+    border: groove green 2px;
+    border-radius: 15px;
+    background-color: green;
+    color:white;
+    padding:12px;
+    margin-top: 15px;
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📱 Mobile App Development Training</h1>
+    <p>
+      From social media platforms to game-changing productivity tools, mobile apps run the world—and so can your child!
+      This course teaches students how to build sleek, user-friendly mobile applications using real-world tools like
+      <span class="highlight">Flutter</span> and <span class="highlight">React Native</span>. With hands-on projects and app store-ready creations,
+      kids gain the skills to transform ideas into pocket-sized powerhouses.
+    </p>
+
+    <p>
+      Our training modules include exciting challenges such as designing user interfaces, solving real-world problems through apps,
+      and prototyping game apps. Students will have the opportunity to work in small teams, present their work, and even test their
+      apps on real devices!
+    </p>
+
+    <p>
+      No prior experience needed—just curiosity and creativity. Each lesson balances coding fundamentals with visual design, ensuring
+      well-rounded learning. Parents love seeing their kids light up with pride when their app finally works. And students? They love
+      showing off what they've built.
+    </p>
+        <a href="app-dev.html">Click for WebDev</a>  <a href="sys-dev.html">Click for SysDev</a> <a href="app-invent.html">App Inventor for beginners</a>
+    <div class="tool-section">
+      <h2>💡 App Idea Generator</h2>
+      <p>Stuck for inspiration? Click below to get a random app idea!</p>
+      <button onclick="generateIdea()">Generate App Idea</button>
+      <div id="idea-output"></div>
+    </div>
+  </div>
+
+  <script>
+    const ideas = [
+      "A habit tracker that rewards good behavior with virtual coins.",
+      "An app to share custom study playlists with classmates.",
+      "A pet care scheduler that syncs with your family’s phones.",
+      "A mobile comic strip creator with built-in drawing tools.",
+      "A scavenger hunt app for school events using QR codes."
+    ];
+
+    function generateIdea() {
+      const idea = ideas[Math.floor(Math.random() * ideas.length)];
+      document.getElementById('idea-output').textContent = "💡 " + idea;
+}
+  </script>
+</body>
+</html>
+

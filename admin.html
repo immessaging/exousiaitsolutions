@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Exousia Academy| - Career opportunities">
+    <meta name="keywords" content="Wholistic education with difference">
+    <meta name="author" content="Exousia">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Exousia Entrepreneurial Academy">
+    <meta property="og:description" content="We offer wholistic education with difference">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Exousia Entrepreneurial Academy">
+    <meta name="twitter:description" content="We offer wholistic education with difference at elementary, basic, and high school levels">
+    
+  <title>Admin Login</title>
+  <link rel="stylesheet" href="css/admin.css">
+  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+  <style>
+    /* ... (your CSS styles here) ... */
+  </style>
+</head>
+<body>
+  
+  <div class="login-container">
+    <h2>Admin Login</h2> 
+
+    <form id="login-form">
+      <div class="input-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <div class="input-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <button class="login-button" type="submit">Login</button>
+    </form>
+    
+  </div>
+  <label>
+    <input type="checkbox" id="themeToggle"> Dark Mode
+  </label>
+  
+  <p id="login-message"></p>
+  <div id="loading-spinner" style="display: none;">⏳ Logging in...</div>
+  <div id="lockout-timer" style="color: red; font-weight: bold;"></div>
+  <script src="js/admin-login.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- SweetAlert2 default theme (can be customized later) -->
+
+<script src="theme.js"></script>
+
+  
+   <footer>
+    
+  </footer>
+</body>
+</html>
+
+
+
+
+
